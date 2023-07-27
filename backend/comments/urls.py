@@ -5,5 +5,5 @@ from comments import views
 
 urlpatterns = [
 path('', views.get_yelp_comments),
-path('/post', views.add_comment),
+path('post', views.add_comment),
 ]

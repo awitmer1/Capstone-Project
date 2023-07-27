@@ -5,5 +5,5 @@ from saved_places import views
 
 urlpatterns = [
 path('', views.get_saved_places),
-path('/post', views.add_saved_place),
+path('post', views.add_saved_place),
 ]

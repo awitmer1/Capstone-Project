@@ -10,8 +10,8 @@ from .serializers import CommentSerializer
 
 @api_view(['GET'])
 @permission_classes([AllowAny])
-def get_yelp_comments(request, yelp_id):
-    comments = Comment.objects.filter(yelp_id=yelp_id)
+def get_yelp_comments(request):
+    comments = Comment.objects.all()
     serializer = CommentSerializer(comments, many=True)
     return Response(serializer.data)
 
@@ -21,8 +21,18 @@ def add_comment(request):
     print(
         'User ', f"{request.user.id} {request.user.email} {request.user.username}")
     
-    serializer = CommentSerializer(data=request.data)
-    if serializer.is_valid():
-        serializer.save(user=request.user)
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    if request.method == 'POST':
+        serializer = CommentSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(user=request.user)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+"""
+@permission_classes([AllowAny])
+def get_yelp_comments(request, yelp_id):
+    comments = Comment.objects.filter(yelp_id=yelp_id)
+    serializer = CommentSerializer(comments, many=True)
+    return Response(serializer.data)
+"""

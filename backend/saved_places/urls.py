@@ -3,6 +3,7 @@ from saved_places import views
 
 # <<<<<<<<<<<<<<<<< EXAMPLE FOR STARTER CODE USE <<<<<<<<<<<<<<<<<
 
-# urlpatterns = [
-# path('<str:video_id>', views.get_all_comments_by_id),
-# path('postto/', views.user_comments),
+urlpatterns = [
+path('', views.get_saved_places),
+path('/post', views.add_saved_place),
+]

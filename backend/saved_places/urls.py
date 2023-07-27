@@ -5,5 +5,5 @@ from saved_places import views
 
 urlpatterns = [
 path('<int:user_id>', views.get_saved_places),
-path('post', views.add_saved_place),
+path('<int:user_id>/<str:yelp_id>', views.modify_saved_place),
 ]

@@ -5,13 +5,21 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.decorators import api_view, permission_classes
 from .models import Comment
 from .serializers import CommentSerializer
+from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
 
+
+# GET all comments for selected business
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def get_yelp_comments(request):
-    comments = Comment.objects.all()
+
+    try:
+        comments = Comment.objects.all()
+    except ObjectDoesNotExist:
+        return Response({"error": "No comments exist for this entry"})
+    
     serializer = CommentSerializer(comments, many=True)
     return Response(serializer.data)
 

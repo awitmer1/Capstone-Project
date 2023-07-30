@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import SearchContext from '../context/SearchContext';
 
 const useForm = (callback) => {
+
+    const { setSearch } = useContext(SearchContext);
 
     const [formValues, setFormValues] = useState({});
 
@@ -16,7 +19,7 @@ const useForm = (callback) => {
 
         event.preventDefault ();
 
-        console.log({formValues})
+        setSearch(formValues.search)
     }
 
     return {formValues, handleChange, handleSubmit}

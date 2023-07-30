@@ -1,28 +1,28 @@
-import React, { useContext, useState } from 'react';
-import SearchContext from '../context/SearchContext';
+import React, { useContext, useState } from "react";
+import SearchContext from "../context/SearchContext";
 
 const useForm = (callback) => {
+  const { setSearch } = useContext(SearchContext);
 
-    const { setSearch } = useContext(SearchContext);
+  const [formValues, setFormValues] = useState({});
 
-    const [formValues, setFormValues] = useState({});
+  const handleChange = (event) => {
+    event.persist();
 
-    const handleChange = (event) => {
+    setFormValues({ ...formValues, [event.target.name]: event.target.value });
+  };
 
-        event.persist();
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
 
-        setFormValues({...formValues, [event.target.name]: event.target.value})
+  const handleClick = () => {
+    
+    setSearch(formValues.search);
+    console.log(`Search results: ${formValues.search}`);
+  };
 
-    }
-
-    const handleSubmit = (event) => {
-
-        event.preventDefault ();
-
-        setSearch(formValues.search)
-    }
-
-    return {formValues, handleChange, handleSubmit}
-}
+  return { formValues, handleChange, handleSubmit, handleClick };
+};
 
 export default useForm;

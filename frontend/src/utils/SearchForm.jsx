@@ -1,8 +1,9 @@
 import React from "react";
 import useForm from "./useForm";
+import { Link } from "react-router-dom";
 
 const SearchForm = () => {
-  const { formValues, handleChange, handleSubmit } = useForm();
+  const { formValues, handleChange, handleSubmit, handleClick } = useForm();
 
   return (
     <form onSubmit={handleSubmit}>
@@ -15,7 +16,7 @@ const SearchForm = () => {
         required={true}
       />
 
-      <button type="submit">Search</button>
+      <Link to={"/results"}><button type="submit" onClick={handleClick}>Search</button></Link>
     </form>
   );
 };

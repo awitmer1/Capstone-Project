@@ -15,6 +15,9 @@ const ResultsPage = () => {
   const [initRests, setInitRests] = useState([]);
   const [initDogParks, setInitDogParks] = useState([]);
   const [initPubParks, setInitPubParks] = useState([]);
+  const [initPetStores, setInitPetStores] = useState([]);
+  const [initVets, setInitVets] = useState([]);
+  const [initHosps, setInitHosps] = useState([]);
 
   async function fetchRestaurants(search) {
     try {
@@ -73,11 +76,71 @@ const ResultsPage = () => {
     }
   }
 
+  async function fetchPetStores(search) {
+    try {
+      const response = await axios.get(
+        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${search}&limit=3&sort_by=best_match&term=pet%20store";`,
+        {
+          headers: {
+            Authorization: `Bearer ${KEY}`,
+            accept: `application/json`,
+          },
+        }
+      );
+      // console.log("User search results");
+      // console.log(response.data.businesses);
+      setInitPetStores(response.data.businesses);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function fetchVets(search) {
+    try {
+      const response = await axios.get(
+        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${search}&limit=3&sort_by=best_match&term=Vet";`,
+        {
+          headers: {
+            Authorization: `Bearer ${KEY}`,
+            accept: `application/json`,
+          },
+        }
+      );
+      // console.log("User search results");
+      // console.log(response.data.businesses);
+      setInitVets(response.data.businesses);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function fetchHosps(search) {
+    try {
+      const response = await axios.get(
+        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${search}&limit=3&sort_by=best_match&term=emergency%20pet";`,
+        {
+          headers: {
+            Authorization: `Bearer ${KEY}`,
+            accept: `application/json`,
+          },
+        }
+      );
+      // console.log("User search results");
+      // console.log(response.data.businesses);
+      setInitHosps(response.data.businesses);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
 
   useEffect(() => {
     fetchRestaurants(search);
     fetchDogParks(search);
     fetchPubParks(search);
+    fetchPetStores(search);
+    fetchVets(search);
+    fetchHosps(search);
   }, []);
 
   return (
@@ -94,6 +157,18 @@ const ResultsPage = () => {
       <div className="public-parks-main">
         <h3>Public Parks</h3>
         <ResultsCards inputs={initPubParks} />
+      </div>
+      <div className="pet-stores-main">
+        <h3>Pet Stores</h3>
+        <ResultsCards inputs={initPetStores} />
+      </div>
+      <div className="vets-main">
+        <h3>Veterenarians</h3>
+        <ResultsCards inputs={initVets} />
+      </div>
+      <div className="hospitals-main">
+        <h3>Pet Hospitals</h3>
+        <ResultsCards inputs={initHosps} />
       </div>
     </>
   );

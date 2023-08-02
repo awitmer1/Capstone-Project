@@ -155,42 +155,42 @@ const ResultsPage = () => {
       <p>Results for: {search}</p>
       <div className="restaurants-main">
         <h3>Restaurants & Bars</h3>
-        <Link to={`/results/more`} onClick={setCategory("restaurants")}>
+        <Link to={`/results/more`} onClick={() => setCategory("restaurants")}>
           <p>See More Results</p>
         </Link>
         <ResultsCards inputs={initRests} />
       </div>
       <div className="dog-parks-main">
         <h3>Dog Parks</h3>
-        <Link to={`/results/more`} onClick={setCategory("dog-parks")}>
+        <Link to={`/results/more`} onClick={() => setCategory("dog-parks")}>
           <p>See More Results</p>
         </Link>
         <ResultsCards inputs={initDogParks} />
       </div>
       <div className="public-parks-main">
         <h3>Public Parks</h3>
-        <Link to={`/results/more`} onClick={setCategory("pub-parks")}>
+        <Link to={`/results/more`} onClick={() => setCategory("pub-parks")}>
           <p>See More Results</p>
         </Link>
         <ResultsCards inputs={initPubParks} />
       </div>
       <div className="pet-stores-main">
         <h3>Pet Stores</h3>
-        <Link to={`/results/more`} onClick={setCategory("pet-stores")}>
+        <Link to={`/results/more`} onClick={() => setCategory("pet-stores")}>
           <p>See More Results</p>
         </Link>
         <ResultsCards inputs={initPetStores} />
       </div>
       <div className="vets-main">
         <h3>Veterenarians</h3>
-        <Link to={`/results/more`} onClick={setCategory("vets")}>
+        <Link to={`/results/more`} onClick={() => setCategory("vets")}>
           <p>See More Results</p>
         </Link>
         <ResultsCards inputs={initVets} />
       </div>
       <div className="hospitals-main">
         <h3>Pet Hospitals</h3>
-        <Link to={`/results/more`} onClick={setCategory("hospitals")}>
+        <Link to={`/results/more`} onClick={() => setCategory("hospitals")}>
           <p>See More Results</p>
         </Link>
         <ResultsCards inputs={initHosps} />

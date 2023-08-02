@@ -10,17 +10,17 @@ import ResultsCards from "../../components/ResultsCards/ResultsCards";
 
 // Utility Imports
 import SearchContext from "../../context/SearchContext";
+import CategoryContext from "../../context/CategoryContext";
 
 const MoreResultsPage = () => {
   const { search, setSearch } = useContext(SearchContext);
+  const { category, setCategory } = useContext(CategoryContext);
   const [moreRests, setMoreRests] = useState([]);
   const [moreDogParks, setMoreDogParks] = useState([]);
   const [morePubParks, setMorePubParks] = useState([]);
   const [morePetStores, setMorePetStores] = useState([]);
   const [moreVets, setMoreVets] = useState([]);
   const [moreHosps, setMoreHosps] = useState([]);
-
-  let category = "";
 
   async function fetchMoreRestaurants(search) {
     try {
@@ -167,6 +167,8 @@ const MoreResultsPage = () => {
           <p>Back</p>
         </Link>
       </div>
+      {console.log(category)}
+      {/* Need to call switch after confirming state holds data */}
       <p>Additional Results for: {search}</p>
     </>
   );

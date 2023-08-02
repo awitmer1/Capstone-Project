@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import axios from "axios";
 import { KEY } from "../../localKey";
+import { Link } from "react-router-dom";
 
 // Component Imports
 import ResultsCards from "../../components/ResultsCards/ResultsCards";
@@ -145,6 +146,9 @@ const ResultsPage = () => {
 
   return (
     <>
+    <div className="back-to-main">
+      <Link to={`/`}><p>Back</p></Link>
+    </div>
       <p>Results for: {search}</p>
       <div className="restaurants-main">
         <h3>Restaurants & Bars</h3>

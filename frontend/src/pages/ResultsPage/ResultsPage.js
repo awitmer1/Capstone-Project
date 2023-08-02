@@ -153,32 +153,44 @@ const ResultsPage = () => {
       <p>Results for: {search}</p>
       <div className="restaurants-main">
         <h3>Restaurants & Bars</h3>
-        <p>See More Results</p>
+        <Link to={`/results/more`}>
+          <p>See More Results</p>
+        </Link>
         <ResultsCards inputs={initRests} />
       </div>
       <div className="dog-parks-main">
         <h3>Dog Parks</h3>
-        <p>See More Results</p>
+        <Link to={`/results/more`}>
+          <p>See More Results</p>
+        </Link>
         <ResultsCards inputs={initDogParks} />
       </div>
       <div className="public-parks-main">
         <h3>Public Parks</h3>
-        <p>See More Results</p>
+        <Link to={`/results/more`}>
+          <p>See More Results</p>
+        </Link>
         <ResultsCards inputs={initPubParks} />
       </div>
       <div className="pet-stores-main">
         <h3>Pet Stores</h3>
-        <p>See More Results</p>
+        <Link to={`/results/more`}>
+          <p>See More Results</p>
+        </Link>
         <ResultsCards inputs={initPetStores} />
       </div>
       <div className="vets-main">
         <h3>Veterenarians</h3>
-        <p>See More Results</p>
+        <Link to={`/results/more`}>
+          <p>See More Results</p>
+        </Link>
         <ResultsCards inputs={initVets} />
       </div>
       <div className="hospitals-main">
         <h3>Pet Hospitals</h3>
-        <p>See More Results</p>
+        <Link to={`/results/more`}>
+          <p>See More Results</p>
+        </Link>
         <ResultsCards inputs={initHosps} />
       </div>
     </>

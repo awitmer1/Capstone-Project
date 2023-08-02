@@ -118,7 +118,7 @@ const MoreResultsPage = () => {
   async function fetchMoreHosps(search) {
     try {
       const response = await axios.get(
-        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${search}&limit=3&sort_by=best_match&term=emergency%20pet";`,
+        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${search}&sort_by=best_match&term=emergency%20pet";`,
         {
           headers: {
             Authorization: `Bearer ${KEY}`,
@@ -141,6 +141,7 @@ const MoreResultsPage = () => {
           <p>Back</p>
         </Link>
       </div>
+      <p>Additional Results for: {search}</p>
     </>
   );
 };

@@ -134,30 +134,28 @@ const MoreResultsPage = () => {
     }
   }
 
-  function displayResults(params) {
-    switch (category) {
-      case "restaurants":
-        fetchMoreRestaurants(search);
-        break;
-      case "dog-parks":
-        fetchMoreDogParks(search);
-        break;
-      case "pub-parks":
-        fetchMorePubParks(search);
-        break;
-      case "pet-stores":
-        fetchMorePetStores(search);
-        break;
-      case "vets":
-        fetchMoreVets(search);
-        break;
-      case "hospitals":
-        fetchMoreHosps(search);
-        break;
-      default:
-        console.log("No data returned");
-        break;
-    }
+  switch (category) {
+    case "restaurants":
+      fetchMoreRestaurants(search);
+      break;
+    case "dog-parks":
+      fetchMoreDogParks(search);
+      break;
+    case "pub-parks":
+      fetchMorePubParks(search);
+      break;
+    case "pet-stores":
+      fetchMorePetStores(search);
+      break;
+    case "vets":
+      fetchMoreVets(search);
+      break;
+    case "hospitals":
+      fetchMoreHosps(search);
+      break;
+    default:
+      console.log("No data returned");
+      break;
   }
 
   return (

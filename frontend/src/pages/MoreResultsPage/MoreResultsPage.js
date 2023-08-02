@@ -20,6 +20,8 @@ const MoreResultsPage = () => {
   const [moreVets, setMoreVets] = useState([]);
   const [moreHosps, setMoreHosps] = useState([]);
 
+  let category = "";
+
   async function fetchMoreRestaurants(search) {
     try {
       const response = await axios.get(

@@ -7,6 +7,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import ResultsPage from "./pages/ResultsPage/ResultsPage";
+import MoreResultsPage from "./pages/MoreResultsPage/MoreResultsPage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -24,6 +25,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/results" element={<ResultsPage />}/>
+        <Route path="/results/more" element={<MoreResultsPage />}/>
       </Routes>
       <Footer />
     </div>

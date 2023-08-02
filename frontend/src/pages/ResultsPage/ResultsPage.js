@@ -134,7 +134,6 @@ const ResultsPage = () => {
     }
   }
 
-
   useEffect(() => {
     fetchRestaurants(search);
     fetchDogParks(search);
@@ -146,9 +145,11 @@ const ResultsPage = () => {
 
   return (
     <>
-    <div className="back-to-main">
-      <Link to={`/`}><p>Back</p></Link>
-    </div>
+      <div className="back-to-main">
+        <Link to={`/`}>
+          <p>Back</p>
+        </Link>
+      </div>
       <p>Results for: {search}</p>
       <div className="restaurants-main">
         <h3>Restaurants & Bars</h3>

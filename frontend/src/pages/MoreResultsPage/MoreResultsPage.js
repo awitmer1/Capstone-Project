@@ -20,7 +20,7 @@ const MoreResultsPage = () => {
   const [moreVets, setMoreVets] = useState([]);
   const [moreHosps, setMoreHosps] = useState([]);
 
-  async function getchMoreRestaurants(search) {
+  async function fetchMoreRestaurants(search) {
     try {
       const response = await axios.get(
         `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${search}&term=dog%20friendly&sort_by=best_match&categories=restaurants";`,
@@ -131,6 +131,32 @@ const MoreResultsPage = () => {
       setMoreHosps(response.data.businesses);
     } catch (error) {
       console.log(error);
+    }
+  }
+
+  function displayResults(params) {
+    switch (category) {
+      case "restaurants":
+        fetchMoreRestaurants(search);
+        break;
+      case "dog-parks":
+        fetchMoreDogParks(search);
+        break;
+      case "pub-parks":
+        fetchMorePubParks(search);
+        break;
+      case "pet-stores":
+        fetchMorePetStores(search);
+        break;
+      case "vets":
+        fetchMoreVets(search);
+        break;
+      case "hospitals":
+        fetchMoreHosps(search);
+        break;
+      default:
+        console.log("No data returned");
+        break;
     }
   }
 

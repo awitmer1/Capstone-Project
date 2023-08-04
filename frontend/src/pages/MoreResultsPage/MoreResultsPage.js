@@ -22,6 +22,7 @@ const MoreResultsPage = () => {
   const [moreVets, setMoreVets] = useState([]);
   const [moreHosps, setMoreHosps] = useState([]);
 
+  // IN PROGRESS: API Calls to fetch more results per category - run on switch case
   async function fetchMoreRestaurants(search) {
     try {
       const response = await axios.get(
@@ -33,8 +34,8 @@ const MoreResultsPage = () => {
           },
         }
       );
-      // console.log("User search results");
-      // console.log(response.data.businesses);
+      console.log("User search results");
+      console.log(response.data.businesses);
       setMoreRests(response.data.businesses);
     } catch (error) {
       console.log(error);
@@ -52,8 +53,8 @@ const MoreResultsPage = () => {
           },
         }
       );
-      // console.log("User search results");
-      // console.log(response.data.businesses);
+      console.log("User search results");
+      console.log(response.data.businesses);
       setMoreDogParks(response.data.businesses);
     } catch (error) {
       console.log(error);
@@ -71,8 +72,8 @@ const MoreResultsPage = () => {
           },
         }
       );
-      // console.log("User search results");
-      // console.log(response.data.businesses);
+      console.log("User search results");
+      console.log(response.data.businesses);
       setMorePubParks(response.data.businesses);
     } catch (error) {
       console.log(error);
@@ -90,8 +91,8 @@ const MoreResultsPage = () => {
           },
         }
       );
-      // console.log("User search results");
-      // console.log(response.data.businesses);
+      console.log("User search results");
+      console.log(response.data.businesses);
       setMorePetStores(response.data.businesses);
     } catch (error) {
       console.log(error);
@@ -109,8 +110,8 @@ const MoreResultsPage = () => {
           },
         }
       );
-      // console.log("User search results");
-      // console.log(response.data.businesses);
+      console.log("User search results");
+      console.log(response.data.businesses);
       setMoreVets(response.data.businesses);
     } catch (error) {
       console.log(error);
@@ -128,37 +129,44 @@ const MoreResultsPage = () => {
           },
         }
       );
-      // console.log("User search results");
-      // console.log(response.data.businesses);
+      console.log("User search results");
+      console.log(response.data.businesses);
       setMoreHosps(response.data.businesses);
+      console.log(setMoreHosps);
     } catch (error) {
       console.log(error);
     }
   }
 
-  switch (category) {
-    case "restaurants":
-      fetchMoreRestaurants(search);
-      break;
-    case "dog-parks":
-      fetchMoreDogParks(search);
-      break;
-    case "pub-parks":
-      fetchMorePubParks(search);
-      break;
-    case "pet-stores":
-      fetchMorePetStores(search);
-      break;
-    case "vets":
-      fetchMoreVets(search);
-      break;
-    case "hospitals":
-      fetchMoreHosps(search);
-      break;
-    default:
-      console.log("No data returned");
-      break;
-  }
+  let renderSwitch = (param) => {
+    switch (param) {
+      case "restaurants":
+        fetchMoreRestaurants(search);
+        break;
+      case "dog-parks":
+        fetchMoreDogParks(search);
+        break;
+      case "pub-parks":
+        fetchMorePubParks(search);
+        break;
+      case "pet-stores":
+        fetchMorePetStores(search);
+        break;
+      case "vets":
+        fetchMoreVets(search);
+        break;
+      case "hospitals":
+        fetchMoreHosps(search);
+        break;
+      default:
+        console.log("No data returned");
+        break;
+    }
+  };
+
+  useEffect(() => {
+    renderSwitch(category);
+  }, []);
 
   return (
     <>
@@ -168,7 +176,6 @@ const MoreResultsPage = () => {
         </Link>
       </div>
       {console.log(category)}
-      {/* Need to call switch after confirming state holds data */}
       <p>Additional Results for: {search}</p>
     </>
   );

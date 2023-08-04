@@ -22,6 +22,7 @@ const ResultsPage = () => {
   const [initVets, setInitVets] = useState([]);
   const [initHosps, setInitHosps] = useState([]);
 
+  // Initial search functions for each category which run on page load (3 results max)
   async function fetchRestaurants(search) {
     try {
       const response = await axios.get(

@@ -138,7 +138,8 @@ const MoreResultsPage = () => {
     }
   }
 
-  let renderSwitch = (param) => {
+  //   Runs based on useContext of category passed from previous page (ResultsPage.js)
+  const renderSwitch = (param) => {
     switch (param) {
       case "restaurants":
         fetchMoreRestaurants(search);
@@ -164,6 +165,27 @@ const MoreResultsPage = () => {
     }
   };
 
+  // Utility function to check state for every category
+  const displayState = () => {
+    console.log(moreRests);
+    console.log(moreDogParks);
+    console.log(morePubParks);
+    console.log(morePetStores);
+    console.log(moreVets);
+    console.log(moreHosps);
+  };
+
+
+//   Placeholder + Function to display results for populated state
+  const displayResults = () => {
+    {moreRests && <ResultsCards inputs={moreRests}/>;}
+    {moreDogParks && <ResultsCards inputs={moreDogParks}/>;}
+    {morePubParks && <ResultsCards inputs={morePubParks}/>;}
+    {morePetStores && <ResultsCards inputs={morePetStores}/>;}
+    {moreVets && <ResultsCards inputs={moreVets}/>;}
+    {moreHosps && <ResultsCards inputs={moreHosps}/>;}
+  }
+
   useEffect(() => {
     renderSwitch(category);
   }, []);
@@ -177,6 +199,12 @@ const MoreResultsPage = () => {
       </div>
       {console.log(category)}
       <p>Additional Results for: {search}</p>
+      {moreRests && <ResultsCards inputs={moreRests}/>}
+      {moreDogParks && <ResultsCards inputs={moreDogParks}/>}
+      {morePubParks && <ResultsCards inputs={morePubParks}/>}
+      {morePetStores && <ResultsCards inputs={morePetStores}/>}
+      {moreVets && <ResultsCards inputs={moreVets}/>}
+      {moreHosps && <ResultsCards inputs={moreHosps}/>}
     </>
   );
 };

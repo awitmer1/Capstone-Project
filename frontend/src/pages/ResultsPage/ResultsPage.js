@@ -14,14 +14,19 @@ import SearchContext from "../../context/SearchContext";
 import CategoryContext from "../../context/CategoryContext";
 
 const ResultsPage = () => {
-  const { search, setSearch } = useContext(SearchContext);
-  const { category, setCategory } = useContext(CategoryContext);
+
+  // State Variables
   const [initRests, setInitRests] = useState([]);
   const [initDogParks, setInitDogParks] = useState([]);
   const [initPubParks, setInitPubParks] = useState([]);
   const [initPetStores, setInitPetStores] = useState([]);
   const [initVets, setInitVets] = useState([]);
   const [initHosps, setInitHosps] = useState([]);
+  const [selectedOptions, setSelectedOptions] = useState([]);
+
+  // Context Variables
+  const { search, setSearch } = useContext(SearchContext);
+  const { category, setCategory } = useContext(CategoryContext);
 
   // Initial search functions for each category which run on page load (3 results max)
   async function fetchRestaurants(search) {
@@ -138,8 +143,14 @@ const ResultsPage = () => {
     }
   }
 
+  const handleCheckboxChange = (option) => {
+    if (selectedOptions.includes(option)) {
+      setSelectedOptions(selectedOptions.filter((item) => item !== option));
+    } else {
+      setSelectedOptions([...selectedOptions, option]);
+    }
+  };
 
-  
   useEffect(() => {
     fetchRestaurants(search);
     fetchDogParks(search);
@@ -151,7 +162,7 @@ const ResultsPage = () => {
 
   return (
     <div className="results-page-container">
-      <SidebarToggle />
+      <SidebarToggle handleCheckboxChange={handleCheckboxChange} selectedOptions={selectedOptions}/>
       <div className="back-to-main">
         <Link to={`/`}>
           <p>Back</p>

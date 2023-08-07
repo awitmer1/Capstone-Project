@@ -9,6 +9,7 @@ const SidebarToggle = ({ selectedOptions, handleCheckboxChange }) => {
   ];
   return (
     <div>
+      <p>Display Category</p>
       {categories.map((category) => (
         <div>
           <input

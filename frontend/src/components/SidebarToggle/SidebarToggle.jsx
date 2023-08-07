@@ -15,6 +15,7 @@ const SidebarToggle = ({selectedOptions, handleCheckboxChange}) => {
             type="checkbox"
             id={category}
             name={category}
+            value={category}
             checked={selectedOptions.includes(category)}
             onChange={() => handleCheckboxChange(category)}
           />

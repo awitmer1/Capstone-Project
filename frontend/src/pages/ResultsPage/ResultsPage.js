@@ -169,13 +169,13 @@ const ResultsPage = () => {
         </Link>
       </div>
       <p>Results for: {search}</p>
-      <div className="restaurants-main">
+      {<div className="restaurants-main">
         <h3>Restaurants & Bars</h3>
         <Link to={`/results/more`} onClick={() => setCategory("restaurants")}>
           <p>See More Results</p>
         </Link>
         <ResultsCards inputs={initRests} />
-      </div>
+      </div>}
       <div className="dog-parks-main">
         <h3>Dog Parks</h3>
         <Link to={`/results/more`} onClick={() => setCategory("dog-parks")}>

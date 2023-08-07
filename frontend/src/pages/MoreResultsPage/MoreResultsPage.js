@@ -22,7 +22,7 @@ const MoreResultsPage = () => {
   const [moreVets, setMoreVets] = useState([]);
   const [moreHosps, setMoreHosps] = useState([]);
 
-  // IN PROGRESS: API Calls to fetch more results per category - run on switch case
+  // API Calls to fetch more results per category - run on switch case
   async function fetchMoreRestaurants(search) {
     try {
       const response = await axios.get(
@@ -132,13 +132,12 @@ const MoreResultsPage = () => {
       console.log("User search results");
       console.log(response.data.businesses);
       setMoreHosps(response.data.businesses);
-      console.log(setMoreHosps);
     } catch (error) {
       console.log(error);
     }
   }
 
-  //   Runs based on useContext of category passed from previous page (ResultsPage.js)
+  //   Runs based on useContext(CategoryContext) passed from previous page (ResultsPage.js)
   const renderSwitch = (param) => {
     switch (param) {
       case "restaurants":
@@ -165,7 +164,7 @@ const MoreResultsPage = () => {
     }
   };
 
-  // Utility function to check state for every category
+  // Utility function to check state for each category
   const displayState = () => {
     console.log(moreRests);
     console.log(moreDogParks);
@@ -175,8 +174,7 @@ const MoreResultsPage = () => {
     console.log(moreHosps);
   };
 
-
-//   Placeholder + Function to display results for populated state
+    //   Placeholder + Function to display results for populated state
   const displayResults = () => {
     {moreRests && <ResultsCards inputs={moreRests}/>;}
     {moreDogParks && <ResultsCards inputs={moreDogParks}/>;}

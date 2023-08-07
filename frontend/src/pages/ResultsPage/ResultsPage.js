@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 // Component Imports
 import ResultsCards from "../../components/ResultsCards/ResultsCards";
+import SidebarToggle from "../../components/SidebarToggle/SidebarToggle";
 
 // Utility Imports
 import SearchContext from "../../context/SearchContext";
@@ -137,6 +138,8 @@ const ResultsPage = () => {
     }
   }
 
+
+  
   useEffect(() => {
     fetchRestaurants(search);
     fetchDogParks(search);
@@ -147,7 +150,8 @@ const ResultsPage = () => {
   }, []);
 
   return (
-    <>
+    <div className="results-page-container">
+      <SidebarToggle />
       <div className="back-to-main">
         <Link to={`/`}>
           <p>Back</p>
@@ -196,7 +200,7 @@ const ResultsPage = () => {
         </Link>
         <ResultsCards inputs={initHosps} />
       </div>
-    </>
+    </div>
   );
 };
 

@@ -14,7 +14,6 @@ import SearchContext from "../../context/SearchContext";
 import CategoryContext from "../../context/CategoryContext";
 
 const ResultsPage = () => {
-
   // State Variables
   const [initRests, setInitRests] = useState([]);
   const [initDogParks, setInitDogParks] = useState([]);
@@ -22,7 +21,14 @@ const ResultsPage = () => {
   const [initPetStores, setInitPetStores] = useState([]);
   const [initVets, setInitVets] = useState([]);
   const [initHosps, setInitHosps] = useState([]);
-  const [selectedOptions, setSelectedOptions] = useState([]);
+  const [selectedOptions, setSelectedOptions] = useState([
+    "Restaurants & Bars",
+    "Dog Parks",
+    "Public Parks",
+    "Pet Stores",
+    "Veterenarians",
+    "Pet Hospitals",
+  ]);
 
   // Context Variables
   const { search, setSearch } = useContext(SearchContext);
@@ -143,6 +149,7 @@ const ResultsPage = () => {
     }
   }
 
+  // Handles checkboxes in sidebar - add / remove from state
   const handleCheckboxChange = (option) => {
     if (selectedOptions.includes(option)) {
       setSelectedOptions(selectedOptions.filter((item) => item !== option));
@@ -150,6 +157,103 @@ const ResultsPage = () => {
       setSelectedOptions([...selectedOptions, option]);
     }
   };
+
+  // Conditional render functions to show only when checked in sidebar
+  function renderRests(selected_category) {
+    if (selectedOptions.includes(selected_category)) {
+      return (
+        <div className='restaurants-main'>
+          <h3>Restaurants & Bars</h3>
+          <Link to={`/results/more`} onClick={() => setCategory("restaurants")}>
+            <p>See More Results</p>
+          </Link>
+          <ResultsCards inputs={initRests} />
+        </div>
+      );
+    } else {
+      return null;
+    }
+  }
+
+  function renderDogParks(selected_category) {
+    if (selectedOptions.includes(selected_category)) {
+      return (
+        <div className='dog-parks-main'>
+          <h3>Dog Parks</h3>
+          <Link to={`/results/more`} onClick={() => setCategory("dog-parks")}>
+            <p>See More Results</p>
+          </Link>
+          <ResultsCards inputs={initDogParks} />
+        </div>
+      );
+    } else {
+      return null;
+    }
+  }
+
+  function renderPubParks(selected_category) {
+    if (selectedOptions.includes(selected_category)) {
+      return (
+        <div className='public-parks-main'>
+          <h3>Public Parks</h3>
+          <Link to={`/results/more`} onClick={() => setCategory("pub-parks")}>
+            <p>See More Results</p>
+          </Link>
+          <ResultsCards inputs={initPubParks} />
+        </div>
+      );
+    } else {
+      return null;
+    }
+  }
+
+  function renderPetStores(selected_category) {
+    if (selectedOptions.includes(selected_category)) {
+      return (
+        <div className='pet-stores-main'>
+          <h3>Pet Stores</h3>
+          <Link to={`/results/more`} onClick={() => setCategory("pet-stores")}>
+            <p>See More Results</p>
+          </Link>
+          <ResultsCards inputs={initPetStores} />
+        </div>
+      );
+    } else {
+      return null;
+    }
+  }
+
+  function renderVets(selected_category) {
+    if (selectedOptions.includes(selected_category)) {
+      return (
+        <div className='vets-main'>
+          <h3>Veterenarians</h3>
+          <Link to={`/results/more`} onClick={() => setCategory("vets")}>
+            <p>See More Results</p>
+          </Link>
+          <ResultsCards inputs={initVets} />
+        </div>
+      );
+    } else {
+      return null;
+    }
+  }
+
+  function renderHosps(selected_category) {
+    if (selectedOptions.includes(selected_category)) {
+      return (
+        <div className='hospitals-main'>
+          <h3>Pet Hospitals</h3>
+          <Link to={`/results/more`} onClick={() => setCategory("hospitals")}>
+            <p>See More Results</p>
+          </Link>
+          <ResultsCards inputs={initHosps} />
+        </div>
+      );
+    } else {
+      return null;
+    }
+  }
 
   useEffect(() => {
     fetchRestaurants(search);
@@ -161,56 +265,23 @@ const ResultsPage = () => {
   }, []);
 
   return (
-    <div className="results-page-container">
-      <SidebarToggle handleCheckboxChange={handleCheckboxChange} selectedOptions={selectedOptions}/>
-      <div className="back-to-main">
+    <div className='results-page-container'>
+      <SidebarToggle
+        handleCheckboxChange={handleCheckboxChange}
+        selectedOptions={selectedOptions}
+      />
+      <div className='back-to-main'>
         <Link to={`/`}>
           <p>Back</p>
         </Link>
       </div>
       <p>Results for: {search}</p>
-      {<div className="restaurants-main">
-        <h3>Restaurants & Bars</h3>
-        <Link to={`/results/more`} onClick={() => setCategory("restaurants")}>
-          <p>See More Results</p>
-        </Link>
-        <ResultsCards inputs={initRests} />
-      </div>}
-      <div className="dog-parks-main">
-        <h3>Dog Parks</h3>
-        <Link to={`/results/more`} onClick={() => setCategory("dog-parks")}>
-          <p>See More Results</p>
-        </Link>
-        <ResultsCards inputs={initDogParks} />
-      </div>
-      <div className="public-parks-main">
-        <h3>Public Parks</h3>
-        <Link to={`/results/more`} onClick={() => setCategory("pub-parks")}>
-          <p>See More Results</p>
-        </Link>
-        <ResultsCards inputs={initPubParks} />
-      </div>
-      <div className="pet-stores-main">
-        <h3>Pet Stores</h3>
-        <Link to={`/results/more`} onClick={() => setCategory("pet-stores")}>
-          <p>See More Results</p>
-        </Link>
-        <ResultsCards inputs={initPetStores} />
-      </div>
-      <div className="vets-main">
-        <h3>Veterenarians</h3>
-        <Link to={`/results/more`} onClick={() => setCategory("vets")}>
-          <p>See More Results</p>
-        </Link>
-        <ResultsCards inputs={initVets} />
-      </div>
-      <div className="hospitals-main">
-        <h3>Pet Hospitals</h3>
-        <Link to={`/results/more`} onClick={() => setCategory("hospitals")}>
-          <p>See More Results</p>
-        </Link>
-        <ResultsCards inputs={initHosps} />
-      </div>
+      {renderRests("Restaurants & Bars")}
+      {renderDogParks("Dog Parks")}
+      {renderPubParks("Public Parks")}
+      {renderPetStores("Pet Stores")}
+      {renderVets("Veterenarians")}
+      {renderHosps("Pet Hospitals")}
     </div>
   );
 };

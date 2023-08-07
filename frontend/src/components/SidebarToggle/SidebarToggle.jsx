@@ -1,4 +1,4 @@
-const SidebarToggle = ({selectedOptions, handleCheckboxChange}) => {
+const SidebarToggle = ({ selectedOptions, handleCheckboxChange }) => {
   const categories = [
     "Restaurants & Bars",
     "Dog Parks",
@@ -12,7 +12,7 @@ const SidebarToggle = ({selectedOptions, handleCheckboxChange}) => {
       {categories.map((category) => (
         <div>
           <input
-            type="checkbox"
+            type='checkbox'
             id={category}
             name={category}
             value={category}
@@ -22,11 +22,11 @@ const SidebarToggle = ({selectedOptions, handleCheckboxChange}) => {
           <label htmlFor={category}>{category}</label>
         </div>
       ))}
-      <div>
+      {/* <div>
         {selectedOptions.map((option) => (
           <p>{option}</p>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

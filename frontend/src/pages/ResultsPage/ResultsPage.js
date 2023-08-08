@@ -159,8 +159,8 @@ const ResultsPage = () => {
   };
 
   // Conditional render functions to show only when checked in sidebar
-  function renderRests(selected_category) {
-    if (selectedOptions.includes(selected_category)) {
+  function renderRests(selectedCategory) {
+    if (selectedOptions.includes(selectedCategory)) {
       return (
         <div className='restaurants-main'>
           <h3>Restaurants & Bars</h3>
@@ -175,8 +175,8 @@ const ResultsPage = () => {
     }
   }
 
-  function renderDogParks(selected_category) {
-    if (selectedOptions.includes(selected_category)) {
+  function renderDogParks(selectedCategory) {
+    if (selectedOptions.includes(selectedCategory)) {
       return (
         <div className='dog-parks-main'>
           <h3>Dog Parks</h3>
@@ -191,8 +191,8 @@ const ResultsPage = () => {
     }
   }
 
-  function renderPubParks(selected_category) {
-    if (selectedOptions.includes(selected_category)) {
+  function renderPubParks(selectedCategory) {
+    if (selectedOptions.includes(selectedCategory)) {
       return (
         <div className='public-parks-main'>
           <h3>Public Parks</h3>
@@ -207,8 +207,8 @@ const ResultsPage = () => {
     }
   }
 
-  function renderPetStores(selected_category) {
-    if (selectedOptions.includes(selected_category)) {
+  function renderPetStores(selectedCategory) {
+    if (selectedOptions.includes(selectedCategory)) {
       return (
         <div className='pet-stores-main'>
           <h3>Pet Stores</h3>
@@ -223,8 +223,8 @@ const ResultsPage = () => {
     }
   }
 
-  function renderVets(selected_category) {
-    if (selectedOptions.includes(selected_category)) {
+  function renderVets(selectedCategory) {
+    if (selectedOptions.includes(selectedCategory)) {
       return (
         <div className='vets-main'>
           <h3>Veterenarians</h3>
@@ -239,8 +239,8 @@ const ResultsPage = () => {
     }
   }
 
-  function renderHosps(selected_category) {
-    if (selectedOptions.includes(selected_category)) {
+  function renderHosps(selectedCategory) {
+    if (selectedOptions.includes(selectedCategory)) {
       return (
         <div className='hospitals-main'>
           <h3>Pet Hospitals</h3>

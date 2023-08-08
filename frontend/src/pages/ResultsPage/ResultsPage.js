@@ -158,96 +158,18 @@ const ResultsPage = () => {
     }
   };
 
-  // Conditional render functions to show only when checked in sidebar
-  function renderRests(selectedCategory) {
+  //Conditional render function to show only selected categories in sidebar
+  function renderCategory(selectedCategory, className, heading, categoryName) {
     if (selectedOptions.includes(selectedCategory)) {
       return (
-        <div className='restaurants-main'>
-          <h3>Restaurants & Bars</h3>
-          <Link to={`/results/more`} onClick={() => setCategory("restaurants")}>
+        <div className={className}>
+          <h3>{heading}</h3>
+          <Link
+            to={`/results/more`}
+            onClick={() => setCategory(`${categoryName}`)}>
             <p>See More Results</p>
           </Link>
           <ResultsCards inputs={initRests} />
-        </div>
-      );
-    } else {
-      return null;
-    }
-  }
-
-  function renderDogParks(selectedCategory) {
-    if (selectedOptions.includes(selectedCategory)) {
-      return (
-        <div className='dog-parks-main'>
-          <h3>Dog Parks</h3>
-          <Link to={`/results/more`} onClick={() => setCategory("dog-parks")}>
-            <p>See More Results</p>
-          </Link>
-          <ResultsCards inputs={initDogParks} />
-        </div>
-      );
-    } else {
-      return null;
-    }
-  }
-
-  function renderPubParks(selectedCategory) {
-    if (selectedOptions.includes(selectedCategory)) {
-      return (
-        <div className='public-parks-main'>
-          <h3>Public Parks</h3>
-          <Link to={`/results/more`} onClick={() => setCategory("pub-parks")}>
-            <p>See More Results</p>
-          </Link>
-          <ResultsCards inputs={initPubParks} />
-        </div>
-      );
-    } else {
-      return null;
-    }
-  }
-
-  function renderPetStores(selectedCategory) {
-    if (selectedOptions.includes(selectedCategory)) {
-      return (
-        <div className='pet-stores-main'>
-          <h3>Pet Stores</h3>
-          <Link to={`/results/more`} onClick={() => setCategory("pet-stores")}>
-            <p>See More Results</p>
-          </Link>
-          <ResultsCards inputs={initPetStores} />
-        </div>
-      );
-    } else {
-      return null;
-    }
-  }
-
-  function renderVets(selectedCategory) {
-    if (selectedOptions.includes(selectedCategory)) {
-      return (
-        <div className='vets-main'>
-          <h3>Veterenarians</h3>
-          <Link to={`/results/more`} onClick={() => setCategory("vets")}>
-            <p>See More Results</p>
-          </Link>
-          <ResultsCards inputs={initVets} />
-        </div>
-      );
-    } else {
-      return null;
-    }
-  }
-
-  function renderHosps(selectedCategory) {
-    if (selectedOptions.includes(selectedCategory)) {
-      return (
-        <div className='hospitals-main'>
-          <h3>Pet Hospitals</h3>
-          <Link to={`/results/more`} onClick={() => setCategory("hospitals")}>
-            <p>See More Results</p>
-          </Link>
-          <ResultsCards inputs={initHosps} />
         </div>
       );
     } else {
@@ -276,12 +198,32 @@ const ResultsPage = () => {
         </Link>
       </div>
       <p>Results for: {search}</p>
-      {renderRests("Restaurants & Bars")}
-      {renderDogParks("Dog Parks")}
-      {renderPubParks("Public Parks")}
-      {renderPetStores("Pet Stores")}
-      {renderVets("Veterenarians")}
-      {renderHosps("Pet Hospitals")}
+      {renderCategory(
+        "Restaurants & Bars",
+        "restaurants-main",
+        "Restaurants & Bars",
+        "restaurants"
+      )}
+      {renderCategory("Dog Parks", "dog-parks-main", "Dog Parks", "dog-parks")}
+      {renderCategory(
+        "Public Parks",
+        "public-parks-main",
+        "Public Parks",
+        "pub-parks"
+      )}
+      {renderCategory(
+        "Pet Stores",
+        "pet-stores-main",
+        "Pet Stores",
+        "pet-stores"
+      )}
+      {renderCategory("Veterenarians", "vets-main", "Veterenarians", "vets")}
+      {renderCategory(
+        "Pet Hospitals",
+        "hospitals-main",
+        "Pet Hospitals",
+        "hospitals"
+      )}
     </div>
   );
 };

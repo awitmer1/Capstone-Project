@@ -261,4 +261,6 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+localKey.js
 Test.js
+Holding.js

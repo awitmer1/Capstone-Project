@@ -159,10 +159,10 @@ const ResultsPage = () => {
   };
 
   //Conditional render function to show only selected categories in sidebar
-  function renderCategory(selectedCategory, className, categoryName) {
+  function renderCategory(selectedCategory, categoryName) {
     if (selectedOptions.includes(selectedCategory)) {
       return (
-        <div className={className}>
+        <div className={categoryName}>
           <h3>{selectedCategory}</h3>
           <Link
             to={`/results/more`}
@@ -198,12 +198,12 @@ const ResultsPage = () => {
         </Link>
       </div>
       <p>Results for: {search}</p>
-      {renderCategory("Restaurants & Bars", "restaurants-main", "restaurants")}
-      {renderCategory("Dog Parks", "dog-parks-main", "dog-parks")}
-      {renderCategory("Public Parks", "public-parks-main", "pub-parks")}
-      {renderCategory("Pet Stores", "pet-stores-main", "pet-stores")}
-      {renderCategory("Veterenarians", "vets-main", "vets")}
-      {renderCategory("Pet Hospitals", "hospitals-main", "hospitals")}
+      {renderCategory("Restaurants & Bars", "restaurants")}
+      {renderCategory("Dog Parks", "dog-parks")}
+      {renderCategory("Public Parks", "pub-parks")}
+      {renderCategory("Pet Stores", "pet-stores")}
+      {renderCategory("Veterenarians", "vets")}
+      {renderCategory("Pet Hospitals", "hospitals")}
     </div>
   );
 };

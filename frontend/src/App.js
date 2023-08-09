@@ -21,11 +21,12 @@ function App() {
     <div>
       <Navbar />
       <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/results" element={<ResultsPage />}/>
-        <Route path="/results/more" element={<MoreResultsPage />}/>
+        <Route path='/' element={<LandingPage />} />
+        <Route path='/register' element={<RegisterPage />} />
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/results' element={<ResultsPage />} />
+        <Route path='/results/more' element={<MoreResultsPage />} />
+        {/* <Route path="/business/:id" element={} /> */}
       </Routes>
       <Footer />
     </div>

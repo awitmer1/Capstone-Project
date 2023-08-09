@@ -8,6 +8,7 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import ResultsPage from "./pages/ResultsPage/ResultsPage";
 import MoreResultsPage from "./pages/MoreResultsPage/MoreResultsPage";
+import BusinessPage from "./pages/BusinessPage/BusinessPage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -26,7 +27,7 @@ function App() {
         <Route path='/login' element={<LoginPage />} />
         <Route path='/results' element={<ResultsPage />} />
         <Route path='/results/more' element={<MoreResultsPage />} />
-        {/* <Route path="/business/:id" element={} /> */}
+        {/* <Route path="/business/:id" element={<BusinessPage />} /> */}
       </Routes>
       <Footer />
     </div>

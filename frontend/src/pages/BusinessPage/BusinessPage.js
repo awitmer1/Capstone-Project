@@ -18,7 +18,16 @@ const BusinessPage = () => {
   const { search, setSearch } = useContext(SearchContext);
   const { category, setCategory } = useContext(CategoryContext);
 
-  return <div>BusinessPage</div>;
+  return (
+    <div>
+      <h3>Business Name</h3>
+      <p>Category</p>
+      <p>Description</p>
+      <p>Hours</p>
+      <p>Location</p>
+      <p>Phone</p>
+    </div>
+  );
 };
 
 export default BusinessPage;

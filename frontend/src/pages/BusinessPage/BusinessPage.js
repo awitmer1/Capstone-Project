@@ -19,13 +19,20 @@ const BusinessPage = () => {
   const { category, setCategory } = useContext(CategoryContext);
 
   return (
-    <div>
-      <h3>Business Name</h3>
-      <p>Category</p>
-      <p>Description</p>
-      <p>Hours</p>
-      <p>Location</p>
-      <p>Phone</p>
+    <div className='business-main'>
+      <div className='back-to-main'>
+        <Link to={`/results`}>
+          <p>Back</p>
+        </Link>
+      </div>
+      <div>
+        <h3>Business Name</h3>
+        <p>Category</p>
+        <p>Description</p>
+        <p>Hours</p>
+        <p>Location</p>
+        <p>Phone</p>
+      </div>
     </div>
   );
 };

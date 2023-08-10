@@ -27,7 +27,7 @@ function App() {
         <Route path='/login' element={<LoginPage />} />
         <Route path='/results' element={<ResultsPage />} />
         <Route path='/results/more' element={<MoreResultsPage />} />
-        {/* <Route path="/business/:id" element={<BusinessPage />} /> */}
+        <Route path='/business/:id' element={<BusinessPage />} />
       </Routes>
       <Footer />
     </div>

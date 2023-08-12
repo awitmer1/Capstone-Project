@@ -11,7 +11,9 @@ const BusinessInfo = ({ info }) => {
       <p>Hours</p>
       <p>{`${info.location.display_address[0]} `}</p>
       <p>{`${info.location.display_address[1]} `}</p>
-      <p>{`${info.location.display_address[2]} `}</p>
+      {info.location.display_address[2] && (
+        <p>{`${info.location.display_address[2]} `}</p>
+      )}
       <p>
         <StarRating businessRating={info.rating} />
         based on {`${info.review_count}`} reviews

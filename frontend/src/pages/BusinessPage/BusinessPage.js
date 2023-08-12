@@ -1,26 +1,18 @@
 // General Imports
 import React, { useEffect, useState } from "react";
-import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { KEY } from "../../localKey";
 import { Link } from "react-router-dom";
 
 // Component Imports
-import ResultsCards from "../../components/ResultsCards/ResultsCards";
-import SidebarToggle from "../../components/SidebarToggle/SidebarToggle";
-
-// Utility Imports
-import SearchContext from "../../context/SearchContext";
-import CategoryContext from "../../context/CategoryContext";
+import StarRating from "../../components/StarRating/StarRating";
 
 const BusinessPage = () => {
   // State Variables
   const [bizData, setBizData] = useState([]);
 
   // Context Variables
-  const { search, setSearch } = useContext(SearchContext);
-  const { category, setCategory } = useContext(CategoryContext);
   const { id } = useParams();
 
   async function getBusinessInfo(id) {
@@ -34,8 +26,8 @@ const BusinessPage = () => {
           },
         }
       );
-      // console.log("Business Search Result");
-      // console.log(response.data);
+      console.log("Business Search Result");
+      console.log(response.data);
       setBizData(response.data);
     } catch (error) {
       console.log(error);
@@ -44,14 +36,14 @@ const BusinessPage = () => {
 
   function runTests(data) {
     console.log(data);
-    // console.log(data.id);
-    // console.log(data.categories[0].title);
-    // console.log(data.location);
-    // console.log(data.location.display_address);
-    // console.log(
-    //   `${data.location.display_address[0]} ` +
-    //     `${data.location.display_address[1]}`
-    // );
+    console.log(data.id);
+    console.log(data.categories[0].title);
+    console.log(data.location);
+    console.log(data.location.display_address);
+    console.log(
+      `${data.location.display_address[0]} ` +
+        `${data.location.display_address[1]}`
+    );
     return;
   }
 
@@ -66,23 +58,27 @@ const BusinessPage = () => {
           <p>Back</p>
         </Link>
       </div>
-      <div>
-        {runTests(bizData)}
-        <h3>{bizData.name}</h3>
-        <p>{bizData.display_phone}</p>
-        <p>{bizData.categories[0].title}</p>
-        <p>Hours</p>
-        <p>{`${bizData.location.display_address[0]} `}</p>
-        <p>{`${bizData.location.display_address[1]} `}</p>
-        <p>
-          {`${bizData.rating}`} star rating based on {`${bizData.review_count}`}{" "}
-          reviews
-        </p>
-        <a href={`${bizData.url}`}>Link to Yelp Page</a>
-        <img src={`${bizData.photos[0]}`}></img>
-        <img src={`${bizData.photos[1]}`}></img>
-        <img src={`${bizData.photos[2]}`}></img>
-      </div>
+      {/* {bizData}
+      {runTests(bizData)} */}
+      {bizData && (
+        <div>
+          <h3>{bizData.name}</h3>
+          <p>{bizData.display_phone}</p>
+          <p>{bizData.categories[0].title}</p>
+          <p>Hours</p>
+          <p>{`${bizData.location.display_address[0]} `}</p>
+          <p>{`${bizData.location.display_address[1]} `}</p>
+          <p>
+            {`${bizData.rating}`} star rating based on{" "}
+            {`${bizData.review_count}`} reviews
+          </p>
+          <StarRating businessRating={bizData.rating} />
+          <a href={`${bizData.url}`}>Link to Yelp Page</a>
+          <img src={`${bizData.photos[0]}`}></img>
+          <img src={`${bizData.photos[1]}`}></img>
+          <img src={`${bizData.photos[2]}`}></img>
+        </div>
+      )}
     </div>
   );
 };

@@ -3,10 +3,10 @@ import { BsStar } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
 import { IconContext } from "react-icons";
 
-const StarRating = ({ productRating }) => {
-  function GetStars(productRating) {
+const StarRating = ({ businessRating }) => {
+  function GetStars(businessRating) {
     // Round to nearest half
-    let rating = Math.round(productRating * 2) / 2;
+    let rating = Math.round(businessRating * 2) / 2;
     let output = [];
 
     // Append all the filled whole stars
@@ -29,7 +29,7 @@ const StarRating = ({ productRating }) => {
 
   return (
     <IconContext.Provider value={{ color: "dodgerblue", size: "1.25em" }}>
-      <span>{GetStars(productRating)}</span>
+      <span>{GetStars(businessRating)}</span>
     </IconContext.Provider>
   );
 };

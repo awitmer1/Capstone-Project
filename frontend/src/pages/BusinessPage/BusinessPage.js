@@ -44,14 +44,14 @@ const BusinessPage = () => {
 
   function runTests(data) {
     console.log(data);
-    console.log(data.id);
-    console.log(data.categories[0].title);
-    console.log(data.location);
-    console.log(data.location.display_address);
-    console.log(
-      `${data.location.display_address[0]} ` +
-        `${data.location.display_address[1]}`
-    );
+    // console.log(data.id);
+    // console.log(data.categories[0].title);
+    // console.log(data.location);
+    // console.log(data.location.display_address);
+    // console.log(
+    //   `${data.location.display_address[0]} ` +
+    //     `${data.location.display_address[1]}`
+    // );
     return;
   }
 
@@ -74,6 +74,10 @@ const BusinessPage = () => {
         <p>Hours</p>
         <p>{`${bizData.location.display_address[0]} `}</p>
         <p>{`${bizData.location.display_address[1]} `}</p>
+        <p>
+          {`${bizData.rating}`} star rating based on {`${bizData.review_count}`}{" "}
+          reviews
+        </p>
         <a href={`${bizData.url}`}>Link to Yelp Page</a>
         <img src={`${bizData.photos[0]}`}></img>
         <img src={`${bizData.photos[1]}`}></img>

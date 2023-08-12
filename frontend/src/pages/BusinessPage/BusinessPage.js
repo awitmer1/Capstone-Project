@@ -6,11 +6,12 @@ import { KEY } from "../../localKey";
 import { Link } from "react-router-dom";
 
 // Component Imports
-import StarRating from "../../components/StarRating/StarRating";
+import BusinessInfo from "../../components/BusinessInfo/BusinessInfo";
 
 const BusinessPage = () => {
   // State Variables
   const [bizData, setBizData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   // Context Variables
   const { id } = useParams();
@@ -29,6 +30,7 @@ const BusinessPage = () => {
       console.log("Business Search Result");
       console.log(response.data);
       setBizData(response.data);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -58,27 +60,7 @@ const BusinessPage = () => {
           <p>Back</p>
         </Link>
       </div>
-      {/* {bizData}
-      {runTests(bizData)} */}
-      {bizData && (
-        <div>
-          <h3>{bizData.name}</h3>
-          <p>{bizData.display_phone}</p>
-          <p>{bizData.categories[0].title}</p>
-          <p>Hours</p>
-          <p>{`${bizData.location.display_address[0]} `}</p>
-          <p>{`${bizData.location.display_address[1]} `}</p>
-          <p>
-            {`${bizData.rating}`} star rating based on{" "}
-            {`${bizData.review_count}`} reviews
-          </p>
-          <StarRating businessRating={bizData.rating} />
-          <a href={`${bizData.url}`}>Link to Yelp Page</a>
-          <img src={`${bizData.photos[0]}`}></img>
-          <img src={`${bizData.photos[1]}`}></img>
-          <img src={`${bizData.photos[2]}`}></img>
-        </div>
-      )}
+      {loading ? <p>Loading...</p> : bizData && <BusinessInfo info={bizData} />}
     </div>
   );
 };

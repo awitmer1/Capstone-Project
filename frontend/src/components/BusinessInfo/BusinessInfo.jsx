@@ -4,7 +4,6 @@ import StarRating from "../StarRating/StarRating";
 const BusinessInfo = ({ info }) => {
   return (
     <div>
-      {console.log(info)}
       <h3>{info.name}</h3>
       <p>{info.display_phone}</p>
       <p>{info.categories[0].title}</p>

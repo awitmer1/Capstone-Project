@@ -34,12 +34,25 @@ const BusinessPage = () => {
           },
         }
       );
-      console.log("Business Search Result");
-      console.log(response.data);
+      // console.log("Business Search Result");
+      // console.log(response.data);
       setBizData(response.data);
     } catch (error) {
       console.log(error);
     }
+  }
+
+  function runTests(data) {
+    console.log(data);
+    console.log(data.id);
+    console.log(data.categories[0].title);
+    console.log(data.location);
+    console.log(data.location.display_address);
+    console.log(
+      `${data.location.display_address[0]} ` +
+        `${data.location.display_address[1]}`
+    );
+    return;
   }
 
   useEffect(() => {
@@ -54,13 +67,17 @@ const BusinessPage = () => {
         </Link>
       </div>
       <div>
+        {runTests(bizData)}
         <h3>{bizData.name}</h3>
         <p>{bizData.display_phone}</p>
-        <p>{bizData.categories.title}</p>
-        <p>Description</p>
+        <p>{bizData.categories[0].title}</p>
         <p>Hours</p>
-        <p>Location</p>
-        <a href={`${bizData.url}`}>Link to Yelp Page: </a>
+        <p>{`${bizData.location.display_address[0]} `}</p>
+        <p>{`${bizData.location.display_address[1]} `}</p>
+        <a href={`${bizData.url}`}>Link to Yelp Page</a>
+        <img src={`${bizData.photos[0]}`}></img>
+        <img src={`${bizData.photos[1]}`}></img>
+        <img src={`${bizData.photos[2]}`}></img>
       </div>
     </div>
   );

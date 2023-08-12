@@ -5,8 +5,8 @@ const ResultsCards = ({ inputs }) => {
   return (
     <>
       <div className='business-card-main'>
-        {console.log("array check for mapping")}
-        {console.log(inputs)}
+        {/* {console.log("array check for mapping")}
+        {console.log(inputs)} */}
         {inputs ? (
           inputs &&
           inputs.map((item) => {

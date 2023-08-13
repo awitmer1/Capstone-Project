@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 // Component Imports
 import ResultsCards from "../../components/ResultsCards/ResultsCards";
+import OpenNowButton from "../../components/OpenNowButton/OpenNowButton";
 
 // Utility Imports
 import SearchContext from "../../context/SearchContext";
@@ -21,6 +22,7 @@ const MoreResultsPage = () => {
   const [morePetStores, setMorePetStores] = useState([]);
   const [moreVets, setMoreVets] = useState([]);
   const [moreHosps, setMoreHosps] = useState([]);
+  const [openNow, setOpenNow] = useState(false);
 
   // API Calls to fetch more results per category - run on switch case
   async function fetchMoreRestaurants(search) {
@@ -164,6 +166,11 @@ const MoreResultsPage = () => {
     }
   };
 
+  // Button toggle for Open Now filter
+  const toggleOpen = () => {
+    setOpenNow(!openNow);
+  };
+
   // Utility function to check state for each category
   const displayState = () => {
     console.log(moreRests);
@@ -174,15 +181,27 @@ const MoreResultsPage = () => {
     console.log(moreHosps);
   };
 
-    //   Placeholder + Function to display results for populated state
+  //   Placeholder + Function to display results for populated state
   const displayResults = () => {
-    {moreRests && <ResultsCards inputs={moreRests}/>;}
-    {moreDogParks && <ResultsCards inputs={moreDogParks}/>;}
-    {morePubParks && <ResultsCards inputs={morePubParks}/>;}
-    {morePetStores && <ResultsCards inputs={morePetStores}/>;}
-    {moreVets && <ResultsCards inputs={moreVets}/>;}
-    {moreHosps && <ResultsCards inputs={moreHosps}/>;}
-  }
+    {
+      moreRests && <ResultsCards inputs={moreRests} />;
+    }
+    {
+      moreDogParks && <ResultsCards inputs={moreDogParks} />;
+    }
+    {
+      morePubParks && <ResultsCards inputs={morePubParks} />;
+    }
+    {
+      morePetStores && <ResultsCards inputs={morePetStores} />;
+    }
+    {
+      moreVets && <ResultsCards inputs={moreVets} />;
+    }
+    {
+      moreHosps && <ResultsCards inputs={moreHosps} />;
+    }
+  };
 
   useEffect(() => {
     renderSwitch(category);
@@ -190,19 +209,21 @@ const MoreResultsPage = () => {
 
   return (
     <>
-      <div className="back-to-results-page">
+      <div className='back-to-results-page'>
         <Link to={`/results`}>
           <p>Back</p>
         </Link>
       </div>
       {console.log(category)}
       <p>Additional Results for: {search}</p>
-      {moreRests && <ResultsCards inputs={moreRests}/>}
-      {moreDogParks && <ResultsCards inputs={moreDogParks}/>}
-      {morePubParks && <ResultsCards inputs={morePubParks}/>}
-      {morePetStores && <ResultsCards inputs={morePetStores}/>}
-      {moreVets && <ResultsCards inputs={moreVets}/>}
-      {moreHosps && <ResultsCards inputs={moreHosps}/>}
+      <OpenNowButton toggleOpen={toggleOpen} />
+      {openNow && <p>Open Now</p>}
+      {moreRests && <ResultsCards inputs={moreRests} />}
+      {moreDogParks && <ResultsCards inputs={moreDogParks} />}
+      {morePubParks && <ResultsCards inputs={morePubParks} />}
+      {morePetStores && <ResultsCards inputs={morePetStores} />}
+      {moreVets && <ResultsCards inputs={moreVets} />}
+      {moreHosps && <ResultsCards inputs={moreHosps} />}
     </>
   );
 };

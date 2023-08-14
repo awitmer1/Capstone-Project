@@ -229,3 +229,6 @@ const MoreResultsPage = () => {
 };
 
 export default MoreResultsPage;
+
+// Option 1: have a separate api fetch using 'open_now' parameter on Yelp API => replace the original results cards with new results
+// Option 2: filter the original results with an "open_now" filter

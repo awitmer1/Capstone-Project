@@ -4,6 +4,7 @@ import { useContext } from "react";
 import axios from "axios";
 import { KEY } from "../../localKey";
 import { Link } from "react-router-dom";
+import "./ResultsPage.css";
 
 // Component Imports
 import ResultsCards from "../../components/ResultsCards/ResultsCards";
@@ -163,12 +164,15 @@ const ResultsPage = () => {
     if (selectedOptions.includes(selectedCategory)) {
       return (
         <div className={categoryName}>
-          <h3>{selectedCategory}</h3>
-          <Link
-            to={`/results/more`}
-            onClick={() => setCategory(`${categoryName}`)}>
-            <p>See More Results</p>
-          </Link>
+          <div className='header-more-results'>
+            <h3>{selectedCategory}</h3>
+            <Link
+              to={`/results/more`}
+              onClick={() => setCategory(`${categoryName}`)}>
+              <p>See More Results</p>
+            </Link>
+          </div>
+
           <ResultsCards inputs={inputs} />
         </div>
       );
@@ -192,18 +196,21 @@ const ResultsPage = () => {
         handleCheckboxChange={handleCheckboxChange}
         selectedOptions={selectedOptions}
       />
-      <div className='back-to-main'>
-        <Link to={`/`}>
-          <p>Back</p>
-        </Link>
+
+      <div className='results-main-display'>
+        <div className='back-to-main'>
+          <Link to={`/`}>
+            <p>Back</p>
+          </Link>
+        </div>
+        <p className='results-for'>Results for: {search}</p>
+        {renderCategory("Restaurants & Bars", "restaurants", initRests)}
+        {renderCategory("Dog Parks", "dog-parks", initDogParks)}
+        {renderCategory("Public Parks", "pub-parks", initPubParks)}
+        {renderCategory("Pet Stores", "pet-stores", initPetStores)}
+        {renderCategory("Veterenarians", "vets", initVets)}
+        {renderCategory("Pet Hospitals", "hospitals", initHosps)}
       </div>
-      <p>Results for: {search}</p>
-      {renderCategory("Restaurants & Bars", "restaurants", initRests)}
-      {renderCategory("Dog Parks", "dog-parks", initDogParks)}
-      {renderCategory("Public Parks", "pub-parks", initPubParks)}
-      {renderCategory("Pet Stores", "pet-stores", initPetStores)}
-      {renderCategory("Veterenarians", "vets", initVets)}
-      {renderCategory("Pet Hospitals", "hospitals", initHosps)}
     </div>
   );
 };

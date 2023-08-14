@@ -1,3 +1,5 @@
+import "./SidebarToggle.css";
+
 const SidebarToggle = ({ selectedOptions, handleCheckboxChange }) => {
   const categories = [
     "Restaurants & Bars",
@@ -8,8 +10,8 @@ const SidebarToggle = ({ selectedOptions, handleCheckboxChange }) => {
     "Pet Hospitals",
   ];
   return (
-    <div>
-      <p>Display Category</p>
+    <div className='sidebar'>
+      <p className='sidebar-title'>Display Category</p>
       {categories.map((category) => (
         <div>
           <input

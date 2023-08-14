@@ -1,0 +1,12 @@
+.sidebar {
+    margin-right: 5rem;
+}
+
+label {
+    font-size: large;
+}
+
+p.sidebar-title {
+    font-size: 1.5em;
+    margin-bottom: 1rem;
+}

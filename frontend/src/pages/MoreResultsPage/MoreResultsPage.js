@@ -4,6 +4,7 @@ import { useContext } from "react";
 import axios from "axios";
 import { KEY } from "../../localKey";
 import { Link } from "react-router-dom";
+import "./MoreResultsPage.css";
 
 // Component Imports
 import ResultsCards from "../../components/ResultsCards/ResultsCards";
@@ -208,15 +209,17 @@ const MoreResultsPage = () => {
   }, []);
 
   return (
-    <>
-      <div className='back-to-results-page'>
-        <Link to={`/results`}>
-          <p>Back</p>
-        </Link>
+    <div className='more-results-container'>
+      <div className='more-results-header'>
+        <div className='back-to-results-page'>
+          <Link to={`/results`}>
+            <p>Back</p>
+          </Link>
+        </div>
+        {console.log(category)}
+        <p>Additional Results for: {search}</p>
+        <OpenNowButton toggleOpen={toggleOpen} />
       </div>
-      {console.log(category)}
-      <p>Additional Results for: {search}</p>
-      <OpenNowButton toggleOpen={toggleOpen} />
       {openNow && <p>Open Now</p>}
       {moreRests && <ResultsCards inputs={moreRests} />}
       {moreDogParks && <ResultsCards inputs={moreDogParks} />}
@@ -224,7 +227,7 @@ const MoreResultsPage = () => {
       {morePetStores && <ResultsCards inputs={morePetStores} />}
       {moreVets && <ResultsCards inputs={moreVets} />}
       {moreHosps && <ResultsCards inputs={moreHosps} />}
-    </>
+    </div>
   );
 };
 

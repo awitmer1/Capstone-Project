@@ -1,6 +1,13 @@
 .results-page-container {
     display: flex;
     justify-content: center;
+    background-image: url('../../../public/bg-results.png');
+    /* opacity: 0.75; */
+    background-repeat: no-repeat;
+    /* background-size: contain; */
+    background-size: cover;
+    background-attachment: fixed;
+    padding-top: 2rem;
 }
 
 

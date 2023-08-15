@@ -3,4 +3,44 @@ div.centered {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-img {
+    background: url('../../../public/hannah-reding-HZTSjwMi8XM-unsplash.jpg') no-repeat center;
+    background-size: cover;
+    height: 1000px;
+    position: relative;
+}
+
+.hero-search {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.hero-search button {
+    background-color: steelblue;
+    color: white;
+    margin-top: .5rem;
+}
+
+h1 {
+    font-size: 75px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 5px;
+}
+
+input {
+    height: 1.5rem;
+    width: 20rem;
+    text-align: center;
 }

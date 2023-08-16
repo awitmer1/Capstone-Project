@@ -55,11 +55,6 @@ const BusinessPage = () => {
 
   return (
     <div className='business-main'>
-      <div className='back-to-results'>
-        <Link to={`/results`}>
-          <p>Back</p>
-        </Link>
-      </div>
       {loading ? <p>Loading...</p> : bizData && <BusinessInfo info={bizData} />}
     </div>
   );

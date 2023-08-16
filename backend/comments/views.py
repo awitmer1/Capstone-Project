@@ -13,10 +13,10 @@ from django.core.exceptions import ObjectDoesNotExist
 # GET all comments for selected business
 @api_view(['GET'])
 @permission_classes([AllowAny])
-def get_yelp_comments(request):
+def get_yelp_comments(request, yelp_id):
 
     try:
-        comments = Comment.objects.all()
+        comments = Comment.objects.filter(yelp_id=yelp_id)
     except ObjectDoesNotExist:
         return Response({"error": "No comments exist for this entry"})
     

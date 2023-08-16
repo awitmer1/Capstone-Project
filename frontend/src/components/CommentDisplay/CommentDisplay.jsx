@@ -1,6 +1,6 @@
 import React from "react";
 import { useContext } from "react";
-import CommentContext from "../../context/CommentContext";
+import CommentContext from "../../hooks/CommentContext";
 
 import "./CommentDisplay.css";
 

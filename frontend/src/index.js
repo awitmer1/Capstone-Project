@@ -5,6 +5,7 @@ import { AuthProvider } from "./context/AuthContext";
 import { BrowserRouter as Router } from "react-router-dom";
 import { SearchProvider } from "./context/SearchContext";
 import { CategoryProvider } from "./context/CategoryContext";
+import { CommentProvider } from "./hooks/CommentContext";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -12,7 +13,9 @@ ReactDOM.render(
       <AuthProvider>
         <SearchProvider>
           <CategoryProvider>
-            <App />
+            <CommentProvider>
+              <App />
+            </CommentProvider>
           </CategoryProvider>
         </SearchProvider>
       </AuthProvider>

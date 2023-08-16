@@ -1,10 +1,20 @@
+// General Imports
 import React from "react";
-import StarRating from "../StarRating/StarRating";
 import "./BusinessInfo.css";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+
+// Component Imports
 import CommentDisplay from "../CommentDisplay/CommentDisplay";
+import CommentPost from "../CommentPost/CommentPost";
+import StarRating from "../StarRating/StarRating";
+
+// Utility Imports
+import AuthContext from "../../context/AuthContext";
 
 const BusinessInfo = ({ info }) => {
+  const { user } = useContext(AuthContext);
+
   return (
     <div className='business-info-container'>
       <div className='business-text'>
@@ -27,7 +37,14 @@ const BusinessInfo = ({ info }) => {
         <a href={`${info.url}`}>
           <button>Link to Yelp Page</button>
         </a>
-        {/* <CommentDisplay /> */}
+
+        {user ? (
+          <CommentPost id={info.id} />
+        ) : (
+          <p>Must be logged in to comment!</p>
+        )}
+
+        <CommentDisplay id={info.id} />
       </div>
       <div className='business-imgs'>
         <img src={`${info.photos[0]}`}></img>

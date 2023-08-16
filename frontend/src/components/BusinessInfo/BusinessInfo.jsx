@@ -2,6 +2,7 @@ import React from "react";
 import StarRating from "../StarRating/StarRating";
 import "./BusinessInfo.css";
 import { Link } from "react-router-dom";
+import CommentDisplay from "../CommentDisplay/CommentDisplay";
 
 const BusinessInfo = ({ info }) => {
   return (
@@ -23,8 +24,10 @@ const BusinessInfo = ({ info }) => {
           <StarRating businessRating={info.rating} />
           based on {`${info.review_count}`} reviews
         </p>
-        <button href={`${info.url}`}>Link to Yelp Page</button>
-        <a href={`${info.url}`}>Link to Yelp Page</a>
+        <a href={`${info.url}`}>
+          <button>Link to Yelp Page</button>
+        </a>
+        {/* <CommentDisplay /> */}
       </div>
       <div className='business-imgs'>
         <img src={`${info.photos[0]}`}></img>

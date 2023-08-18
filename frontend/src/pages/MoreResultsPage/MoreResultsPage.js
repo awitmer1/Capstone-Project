@@ -17,13 +17,18 @@ import CategoryContext from "../../context/CategoryContext";
 const MoreResultsPage = () => {
   const { search, setSearch } = useContext(SearchContext);
   const { category, setCategory } = useContext(CategoryContext);
+
+  // State(s) for default business search
   const [moreRests, setMoreRests] = useState([]);
   const [moreDogParks, setMoreDogParks] = useState([]);
   const [morePubParks, setMorePubParks] = useState([]);
   const [morePetStores, setMorePetStores] = useState([]);
   const [moreVets, setMoreVets] = useState([]);
   const [moreHosps, setMoreHosps] = useState([]);
+
+  // State(s) for 'Open Now' search
   const [openNow, setOpenNow] = useState(false);
+  const [openRests, setOpenRests] = useState([]);
 
   // API Calls to fetch more results per category - run on switch case
   async function fetchMoreRestaurants(search) {
@@ -140,6 +145,26 @@ const MoreResultsPage = () => {
     }
   }
 
+  // API Calls for 'Open Now' businesses
+  async function fetchOpenRests(search) {
+    try {
+      const response = await axios.get(
+        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${search}&term=dog%20friendly&sort_by=best_match&categories=restaurants&open_now=true";`,
+        {
+          headers: {
+            Authorization: `Bearer ${KEY}`,
+            accept: `application/json`,
+          },
+        }
+      );
+      console.log("User search results");
+      console.log(response.data.businesses);
+      setOpenRests(response.data.businesses);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   //   Runs based on useContext(CategoryContext) passed from previous page (ResultsPage.js)
   const renderSwitch = (param) => {
     switch (param) {
@@ -160,6 +185,18 @@ const MoreResultsPage = () => {
         break;
       case "hospitals":
         fetchMoreHosps(search);
+        break;
+      default:
+        console.log("No data returned");
+        break;
+    }
+  };
+
+  //   Runs based on useContext(CategoryContext) passed from previous page (ResultsPage.js)
+  const openSwitch = (param) => {
+    switch (param) {
+      case "restaurants":
+        fetchOpenRests(search);
         break;
       default:
         console.log("No data returned");

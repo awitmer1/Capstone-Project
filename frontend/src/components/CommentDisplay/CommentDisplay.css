@@ -15,4 +15,5 @@ div.comment-block {
 
 .comment-username {
     font-weight: bold;
+    padding-right: 2rem;
 }

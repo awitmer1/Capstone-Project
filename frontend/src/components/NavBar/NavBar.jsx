@@ -2,22 +2,31 @@ import React from "react";
 import { useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
+import { IconContext } from "react-icons/lib";
+import { SiDatadog } from "react-icons/si";
 import "./NavBar.css";
 
 const Navbar = () => {
   const { logoutUser, user } = useContext(AuthContext);
   const navigate = useNavigate();
   return (
-    <div className="navBar">
+    <div className='navBar'>
       <ul>
-        <li className="brand">
-          <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-            <b>React/Django JWT</b>
+        <li className='brand'>
+          <Link to='/' style={{ textDecoration: "none", color: "white" }}>
+            <IconContext.Provider
+              value={{ size: "1.5em", className: "data-dog" }}>
+              <SiDatadog />
+            </IconContext.Provider>
+            <b>TWF</b>
           </Link>
         </li>
         <li>
           {user ? (
-            <button onClick={logoutUser}>Logout</button>
+            <>
+              <p>{user.username}</p>
+              <button onClick={logoutUser}>Logout</button>
+            </>
           ) : (
             <button onClick={() => navigate("/login")}>Login</button>
           )}

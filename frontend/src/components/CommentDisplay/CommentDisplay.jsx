@@ -14,7 +14,7 @@ const CommentDisplay = () => {
         comments.map((item) => (
           <div key={item.id} className='comment-block'>
             <p className='comment-username'>{item.user.username}</p>
-            <p className='comment-text'>{item.text}</p>
+            <p className='comment-text'>{item.comment_text}</p>
           </div>
         ))
       ) : (

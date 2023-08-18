@@ -11,9 +11,9 @@ const CommentPost = () => {
         <label>Comment</label>
         <input
           type='text'
-          name='comment'
+          name='comment_text'
           onChange={handleChange}
-          value={formValues.comment}
+          value={formValues.comment_text}
         />
 
         <button className='comment-button' type='submit'>

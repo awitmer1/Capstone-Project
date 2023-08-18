@@ -7,7 +7,7 @@ import CommentContext from "../hooks/CommentContext";
 const CommentForm = (callback) => {
   const [formValues, setFormValues] = useState({
     yelp_id: "",
-    text: "",
+    comment_text: "",
   });
   const [user, token] = useAuth();
   const { setComments } = useContext(CommentContext);
@@ -40,10 +40,10 @@ const CommentForm = (callback) => {
     try {
       axios
         .post(
-          `http://127.0.0.1:8000/api/comments/post/${id}`,
+          `http://127.0.0.1:8000/api/comments/post/`,
           {
             yelp_id: `${id}`,
-            text: formValues.comment,
+            comment_text: formValues.comment_text,
           },
           { headers: { Authorization: `Bearer ${token}` } }
         )

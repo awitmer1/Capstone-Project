@@ -19,6 +19,7 @@ const BusinessPage = () => {
   const { id } = useParams();
   const { comments, setComments } = useContext(CommentContext);
 
+  // API Get function for single Yelp business based off of Yelp id
   async function getBusinessInfo(id) {
     try {
       const response = await axios.get(
@@ -39,6 +40,7 @@ const BusinessPage = () => {
     }
   }
 
+  // Get comments from Django backend using Yelp id
   async function getAllComments() {
     const response = await axios.get(
       `http://127.0.0.1:8000/api/comments/${id}`
@@ -48,6 +50,7 @@ const BusinessPage = () => {
     setComments(response.data);
   }
 
+  // Tests for object/data tracking
   function runTests(data) {
     console.log(data);
     console.log(data.id);

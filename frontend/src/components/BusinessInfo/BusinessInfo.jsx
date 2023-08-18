@@ -35,7 +35,7 @@ const BusinessInfo = ({ info }) => {
           based on {`${info.review_count}`} reviews
         </p>
         <a href={`${info.url}`}>
-          <button>Link to Yelp Page</button>
+          <button className='yelp-btn'>Link to Yelp Page</button>
         </a>
 
         {user ? (

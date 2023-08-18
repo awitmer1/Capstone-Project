@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { KEY } from "../../localKey";
 import { Link } from "react-router-dom";
+import CommentContext from "../../hooks/CommentContext";
+import { useContext } from "react";
 
 // Component Imports
 import BusinessInfo from "../../components/BusinessInfo/BusinessInfo";
@@ -15,6 +17,7 @@ const BusinessPage = () => {
 
   // Context Variables
   const { id } = useParams();
+  const { comments, setComments } = useContext(CommentContext);
 
   async function getBusinessInfo(id) {
     try {
@@ -36,6 +39,15 @@ const BusinessPage = () => {
     }
   }
 
+  async function getAllComments() {
+    const response = await axios.get(
+      `http://127.0.0.1:8000/api/comments/${id}`
+    );
+    console.log("User comments");
+    console.log(response.data);
+    setComments(response.data);
+  }
+
   function runTests(data) {
     console.log(data);
     console.log(data.id);
@@ -51,6 +63,7 @@ const BusinessPage = () => {
 
   useEffect(() => {
     getBusinessInfo(id);
+    getAllComments(comments);
   }, []);
 
   return (

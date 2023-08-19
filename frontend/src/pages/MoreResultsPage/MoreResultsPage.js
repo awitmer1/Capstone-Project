@@ -34,7 +34,7 @@ const MoreResultsPage = () => {
   async function fetchMoreRestaurants(search) {
     try {
       const response = await axios.get(
-        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${search}&term=dog%20friendly&sort_by=best_match&categories=restaurants";`,
+        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${search}&term=dog%20friendly&sort_by=best_match&categories=restaurants`,
         {
           headers: {
             Authorization: `Bearer ${KEY}`,
@@ -53,7 +53,7 @@ const MoreResultsPage = () => {
   async function fetchMoreDogParks(search) {
     try {
       const response = await axios.get(
-        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${search}&sort_by=best_match&term=dog_parks";`,
+        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${search}&sort_by=best_match&term=dog_parks`,
         {
           headers: {
             Authorization: `Bearer ${KEY}`,
@@ -72,7 +72,7 @@ const MoreResultsPage = () => {
   async function fetchMorePubParks(search) {
     try {
       const response = await axios.get(
-        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${search}&sort_by=best_match&term=parks";`,
+        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${search}&sort_by=best_match&term=parks`,
         {
           headers: {
             Authorization: `Bearer ${KEY}`,
@@ -91,7 +91,7 @@ const MoreResultsPage = () => {
   async function fetchMorePetStores(search) {
     try {
       const response = await axios.get(
-        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${search}&sort_by=best_match&term=pet%20store";`,
+        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${search}&sort_by=best_match&term=pet%20store`,
         {
           headers: {
             Authorization: `Bearer ${KEY}`,
@@ -110,7 +110,7 @@ const MoreResultsPage = () => {
   async function fetchMoreVets(search) {
     try {
       const response = await axios.get(
-        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${search}&sort_by=best_match&term=Vet";`,
+        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${search}&sort_by=best_match&term=Vet`,
         {
           headers: {
             Authorization: `Bearer ${KEY}`,
@@ -129,7 +129,7 @@ const MoreResultsPage = () => {
   async function fetchMoreHosps(search) {
     try {
       const response = await axios.get(
-        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${search}&sort_by=best_match&term=emergency%20pet";`,
+        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${search}&sort_by=best_match&term=emergency%20pet`,
         {
           headers: {
             Authorization: `Bearer ${KEY}`,
@@ -149,7 +149,7 @@ const MoreResultsPage = () => {
   async function fetchOpenRests(search) {
     try {
       const response = await axios.get(
-        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${search}&term=dog%20friendly&sort_by=best_match&categories=restaurants&open_now=true";`,
+        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${search}&term=dog%20friendly&sort_by=best_match&categories=restaurants&open_now=true`,
         {
           headers: {
             Authorization: `Bearer ${KEY}`,
@@ -157,7 +157,7 @@ const MoreResultsPage = () => {
           },
         }
       );
-      console.log("User search results");
+      console.log("User search results (Open Now)");
       console.log(response.data.businesses);
       setOpenRests(response.data.businesses);
     } catch (error) {
@@ -243,6 +243,7 @@ const MoreResultsPage = () => {
 
   useEffect(() => {
     renderSwitch(category);
+    openSwitch(category);
   }, []);
 
   return (

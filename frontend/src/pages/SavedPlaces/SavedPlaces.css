@@ -1,0 +1,9 @@
+.saved-places-main {
+    height: 900px;
+    background-image: url('../../../public/saved-places-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding-top: 2rem;
+    color: white;
+}

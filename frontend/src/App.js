@@ -9,6 +9,7 @@ import LandingPage from "./pages/LandingPage/LandingPage";
 import ResultsPage from "./pages/ResultsPage/ResultsPage";
 import MoreResultsPage from "./pages/MoreResultsPage/MoreResultsPage";
 import BusinessPage from "./pages/BusinessPage/BusinessPage";
+import SavedPlaces from "./pages/SavedPlaces/SavedPlaces";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -28,6 +29,7 @@ function App() {
         <Route path='/results' element={<ResultsPage />} />
         <Route path='/results/more' element={<MoreResultsPage />} />
         <Route path='/business/:id' element={<BusinessPage />} />
+        <Route path='/saved' element={<SavedPlaces />} />
       </Routes>
       <Footer />
     </div>

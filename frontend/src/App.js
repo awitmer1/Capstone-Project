@@ -29,7 +29,15 @@ function App() {
         <Route path='/results' element={<ResultsPage />} />
         <Route path='/results/more' element={<MoreResultsPage />} />
         <Route path='/business/:id' element={<BusinessPage />} />
-        <Route path='/saved' element={<SavedPlaces />} />
+
+        <Route
+          path='/saved'
+          element={
+            <PrivateRoute>
+              <SavedPlaces />
+            </PrivateRoute>
+          }
+        />
       </Routes>
       <Footer />
     </div>

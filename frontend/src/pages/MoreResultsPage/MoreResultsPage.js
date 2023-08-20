@@ -209,6 +209,38 @@ const MoreResultsPage = () => {
     setOpenNow(!openNow);
   };
 
+  // Conditional display function depending on Open Now toggle
+  function isOpen() {
+    if (!openNow) {
+      {
+        moreRests && <ResultsCards inputs={moreRests} />;
+      }
+      {
+        moreDogParks && <ResultsCards inputs={moreDogParks} />;
+      }
+      {
+        morePubParks && <ResultsCards inputs={morePubParks} />;
+      }
+      {
+        morePetStores && <ResultsCards inputs={morePetStores} />;
+      }
+      {
+        moreVets && <ResultsCards inputs={moreVets} />;
+      }
+      {
+        moreHosps && <ResultsCards inputs={moreHosps} />;
+      }
+    } else {
+      {
+        openNow && <p>Open Now</p>;
+      }
+      {
+        openRests && <ResultsCards inputs={openRests} />;
+      }
+    }
+    return;
+  }
+
   // Utility function to check state for each category
   const displayState = () => {
     console.log(moreRests);
@@ -273,3 +305,11 @@ export default MoreResultsPage;
 
 // Option 1: have a separate api fetch using 'open_now' parameter on Yelp API => replace the original results cards with new results
 // Option 2: filter the original results with an "open_now" filter
+
+//       {openNow && <p>Open Now</p>}
+// {moreRests && <ResultsCards inputs={moreRests} />}
+// {moreDogParks && <ResultsCards inputs={moreDogParks} />}
+// {morePubParks && <ResultsCards inputs={morePubParks} />}
+// {morePetStores && <ResultsCards inputs={morePetStores} />}
+// {moreVets && <ResultsCards inputs={moreVets} />}
+// {moreHosps && <ResultsCards inputs={moreHosps} />}

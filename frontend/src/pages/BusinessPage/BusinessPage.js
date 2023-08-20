@@ -10,6 +10,7 @@ import "./BusinessPage.css";
 
 // Component Imports
 import BusinessInfo from "../../components/BusinessInfo/BusinessInfo";
+import AddRemoveBtn from "../../components/AddRemoveBtn/AddRemoveBtn";
 
 const BusinessPage = () => {
   // State Variables
@@ -65,6 +66,9 @@ const BusinessPage = () => {
     return;
   }
 
+  // Variable to hold category information to pass down to other components
+  let displayCategory = bizData.categories[0].title;
+
   useEffect(() => {
     getBusinessInfo(id);
     getAllComments(comments);
@@ -72,6 +76,7 @@ const BusinessPage = () => {
 
   return (
     <div className='business-main'>
+      <AddRemoveBtn data={bizData} category={displayCategory} />
       {loading ? <p>Loading...</p> : bizData && <BusinessInfo info={bizData} />}
     </div>
   );

@@ -3,7 +3,7 @@ import axios from "axios";
 import AuthContext from "../../context/AuthContext";
 import { useParams } from "react-router-dom";
 
-const AddRemoveBtn = ({ data }) => {
+const AddRemoveBtn = ({ data, category }) => {
   // Context Variables
   const { id } = useParams();
   const { user, token } = useContext(AuthContext);
@@ -30,7 +30,7 @@ const AddRemoveBtn = ({ data }) => {
     deleteBtn(id);
   }
 
-  const addBtn = async (data) => {
+  const addBtn = async (data, category) => {
     try {
       const response = await axios.post(
         `http://127.0.0.1:8000/api/saved_places/${user.id}`,
@@ -42,7 +42,7 @@ const AddRemoveBtn = ({ data }) => {
           body: {
             yelp_id: `${id}`,
             business_name: `${data.name}`,
-            category: `${data.categories[0].title}`,
+            category: `${category}`,
           },
         }
       );
@@ -59,7 +59,10 @@ const AddRemoveBtn = ({ data }) => {
 
   return (
     <>
-      <button onClick={() => addBtnHandle(data)}>Save</button>
+      <button onClick={() => console.log(data, category)}>
+        Get Business Data
+      </button>
+      <button onClick={() => addBtnHandle(data, category)}>Save</button>
       <button onClick={() => deleteBtnHandle(id)}>Remove</button>
     </>
   );

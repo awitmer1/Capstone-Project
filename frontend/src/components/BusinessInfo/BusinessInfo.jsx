@@ -8,7 +8,6 @@ import { useContext } from "react";
 import CommentDisplay from "../CommentDisplay/CommentDisplay";
 import CommentPost from "../CommentPost/CommentPost";
 import StarRating from "../StarRating/StarRating";
-import AddRemoveBtn from "../AddRemoveBtn/AddRemoveBtn";
 
 // Utility Imports
 import AuthContext from "../../context/AuthContext";
@@ -22,7 +21,6 @@ const BusinessInfo = ({ info }) => {
         <Link to={`/results`}>
           <p>Back</p>
         </Link>
-        <AddRemoveBtn />
         <h3>{info.name}</h3>
         <p>{info.display_phone}</p>
         <p>{info.categories[0].title}</p>

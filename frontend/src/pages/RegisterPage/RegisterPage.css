@@ -1,0 +1,11 @@
+.bg-container {
+    height: 900px;
+    background-image: url('../../../public/sign-up-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding-top: 2rem;
+    display: flex;
+    align-items: center;
+    color: white;
+}

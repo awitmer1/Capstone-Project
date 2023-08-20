@@ -6,6 +6,7 @@ import { KEY } from "../../localKey";
 import { Link } from "react-router-dom";
 import CommentContext from "../../hooks/CommentContext";
 import { useContext } from "react";
+import "./BusinessPage.css";
 
 // Component Imports
 import BusinessInfo from "../../components/BusinessInfo/BusinessInfo";

@@ -1,6 +1,9 @@
 .saved-places-main {
     height: 900px;
-    background-image: url('../../../public/saved-places-bg.png');
+    /* Light background image */
+    /* background-image: url('../../../public/saved-places-bg.png'); */
+    /* Dark background image */
+    background-image: url('../../../public/saved-places-dark.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;

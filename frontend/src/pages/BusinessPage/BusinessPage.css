@@ -1,5 +1,8 @@
 .business-main {
-    background-image: url('../../../public/more-info-bg.png');
+    /* Light background image */
+    /* background-image: url('../../../public/more-info-bg.png'); */
+    /* Dark background image */
+    background-image: url('../../../public/more-info-dark.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;

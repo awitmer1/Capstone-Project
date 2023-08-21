@@ -1,6 +1,9 @@
 .bg-container {
     height: 900px;
-    background-image: url('../../../public/sign-up-bg.png');
+    /* Light background image */
+    /* background-image: url('../../../public/sign-up-bg.png'); */
+    /* Dark background image */
+    background-image: url('../../../public/sign-up-dark.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;

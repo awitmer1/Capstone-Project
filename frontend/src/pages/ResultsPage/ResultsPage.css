@@ -1,10 +1,11 @@
 .results-page-container {
     display: flex;
     justify-content: center;
-    background-image: url('../../../public/bg-results.png');
-    /* opacity: 0.75; */
+    /* Light background image */
+    /* background-image: url('../../../public/bg-results.png'); */
+    /* Dark background image */
+    background-image: url('../../../public/bg-results-dark.jpg');
     background-repeat: no-repeat;
-    /* background-size: contain; */
     background-size: cover;
     background-attachment: fixed;
     padding-top: 2rem;

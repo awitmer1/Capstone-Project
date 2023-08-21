@@ -4,7 +4,10 @@
 
 .bg-container {
   height: 900px;
-  background-image: url('../../../public/log-in-bg.png');
+  /* Light background image */
+  /* background-image: url('../../../public/log-in-bg.png'); */
+  /* Dark background image */
+  background-image: url('../../../public/log-in-dark.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;

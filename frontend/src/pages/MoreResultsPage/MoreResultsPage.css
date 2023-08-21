@@ -1,5 +1,8 @@
 .more-results-container {
-    background-image: url('../../../public/more-results-bg.png');
+    /* Light background image */
+    /* background-image: url('../../../public/more-results-bg.png'); */
+    /* Dark background image */
+    background-image: url('../../../public/more-results-dark.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;

@@ -16,6 +16,7 @@ const BusinessPage = () => {
   // State Variables
   const [bizData, setBizData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [businessCategory, setBusinessCategory] = useState("");
 
   // Context Variables
   const { id } = useParams();
@@ -36,6 +37,7 @@ const BusinessPage = () => {
       console.log("Business Search Result");
       console.log(response.data);
       setBizData(response.data);
+      setBusinessCategory(response.data.categories[0].title);
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -67,7 +69,7 @@ const BusinessPage = () => {
   }
 
   // Variable to hold category information to pass down to other components
-  let displayCategory = bizData.categories[0].title;
+  // let displayCategory = bizData.categories[0].title;
 
   useEffect(() => {
     getBusinessInfo(id);
@@ -76,7 +78,7 @@ const BusinessPage = () => {
 
   return (
     <div className='business-main'>
-      <AddRemoveBtn data={bizData} category={displayCategory} />
+      <AddRemoveBtn data={bizData} category={businessCategory} />
       {loading ? <p>Loading...</p> : bizData && <BusinessInfo info={bizData} />}
     </div>
   );

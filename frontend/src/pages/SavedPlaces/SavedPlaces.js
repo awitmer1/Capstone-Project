@@ -53,7 +53,6 @@ const SavedPlaces = () => {
         {saved.map((place) => {
           return (
             <div key={place.yelp_id}>
-              <a>{place.yelp_id}</a>
               <a>{place.business_name}</a>
               <a>{place.category}</a>
             </div>

@@ -20,5 +20,6 @@ p.sidebar-title {
 }
 
 .sidebar-category-boxes input {
-    height: 1.25rem;
+    height: 1rem;
+    width: 3rem;
 }

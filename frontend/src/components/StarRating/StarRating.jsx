@@ -29,7 +29,7 @@ const StarRating = ({ businessRating }) => {
 
   return (
     <IconContext.Provider value={{ color: "dodgerblue", size: "1.25em" }}>
-      <span>{GetStars(businessRating)}</span>
+      <span key={businessRating}>{GetStars(businessRating)}</span>
     </IconContext.Provider>
   );
 };

@@ -10,7 +10,7 @@ const SidebarToggle = ({ selectedOptions, handleCheckboxChange }) => {
     "Pet Hospitals",
   ];
   return (
-    <div className='sidebar'>
+    <div className='sidebar' key={categories}>
       <p className='sidebar-title'>Display Category</p>
       {categories.map((category) => (
         <div className='sidebar-category-boxes'>

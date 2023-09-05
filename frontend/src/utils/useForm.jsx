@@ -17,7 +17,6 @@ const useForm = (callback) => {
   };
 
   const handleClick = () => {
-    
     setSearch(formValues.search);
     console.log(`Search results: ${formValues.search}`);
   };

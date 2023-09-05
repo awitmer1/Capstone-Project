@@ -1,6 +1,6 @@
 .results-page-container {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     /* Light background image */
     /* background-image: url('../../../public/bg-results.png'); */
     /* Dark background image */

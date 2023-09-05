@@ -15,8 +15,8 @@ import SearchContext from "../../context/SearchContext";
 import CategoryContext from "../../context/CategoryContext";
 
 const MoreResultsPage = () => {
-  const { search, setSearch } = useContext(SearchContext);
-  const { category, setCategory } = useContext(CategoryContext);
+  const { search } = useContext(SearchContext);
+  const { category } = useContext(CategoryContext);
 
   // State(s) for default business search
   const [moreRests, setMoreRests] = useState([]);

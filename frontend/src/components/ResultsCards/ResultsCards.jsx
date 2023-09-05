@@ -4,38 +4,32 @@ import "./ResultsCards.css";
 
 const ResultsCards = ({ inputs }) => {
   return (
-    <>
-      <div className='business-card-main'>
-        {/* {console.log("array check for mapping")}
+    <div className='business-card-main'>
+      {/* {console.log("array check for mapping")}
         {console.log(inputs)} */}
-        {inputs ? (
-          inputs &&
-          inputs.map((item) => {
-            return (
-              <Link to={`/business/${item.id}`}>
-                <div key={item.id} className='card'>
-                  <div className='card-pic'>
-                    <img
-                      src={`${item.image_url}`}
-                      width={"125"}
-                      height={"100"}
-                    />
-                  </div>
-                  <div className='card-text'>
-                    <p className='bus-name'>{item.name}</p>
-                    <p className='bus-category' style={{ color: "grey" }}>
-                      {item.categories[0].title}
-                    </p>
-                  </div>
+      {inputs ? (
+        inputs &&
+        inputs.map((item) => {
+          return (
+            <Link to={`/business/${item.id}`}>
+              <div key={item.id} className='card'>
+                <div className='card-pic'>
+                  <img src={`${item.image_url}`} width={"125"} height={"100"} />
                 </div>
-              </Link>
-            );
-          })
-        ) : (
-          <p>No results available</p>
-        )}
-      </div>
-    </>
+                <div className='card-text'>
+                  <p className='bus-name'>{item.name}</p>
+                  <p className='bus-category' style={{ color: "grey" }}>
+                    {item.categories[0].title}
+                  </p>
+                </div>
+              </div>
+            </Link>
+          );
+        })
+      ) : (
+        <p>No results available</p>
+      )}
+    </div>
   );
 };
 

@@ -29,6 +29,11 @@ const MoreResultsPage = () => {
   // State(s) for 'Open Now' search
   const [openNow, setOpenNow] = useState(false);
   const [openRests, setOpenRests] = useState([]);
+  const [openDogParks, setOpenDogParks] = useState([]);
+  const [openPubParks, setOpenPubParks] = useState([]);
+  const [openPetStores, setOpenPetStores] = useState([]);
+  const [openVets, setOpenVets] = useState([]);
+  const [openHosps, setOpenHosps] = useState([]);
 
   // API Calls to fetch more results per category - run on switch case
   async function fetchMoreRestaurants(search) {
@@ -178,7 +183,7 @@ const MoreResultsPage = () => {
       );
       console.log("User search results");
       console.log(response.data.businesses);
-      setMoreDogParks(response.data.businesses);
+      setOpenDogParks(response.data.businesses);
     } catch (error) {
       console.log(error);
     }
@@ -197,7 +202,7 @@ const MoreResultsPage = () => {
       );
       console.log("User search results");
       console.log(response.data.businesses);
-      setMorePubParks(response.data.businesses);
+      setOpenPubParks(response.data.businesses);
     } catch (error) {
       console.log(error);
     }
@@ -216,7 +221,7 @@ const MoreResultsPage = () => {
       );
       console.log("User search results");
       console.log(response.data.businesses);
-      setMorePetStores(response.data.businesses);
+      setOpenPetStores(response.data.businesses);
     } catch (error) {
       console.log(error);
     }
@@ -235,7 +240,7 @@ const MoreResultsPage = () => {
       );
       console.log("User search results");
       console.log(response.data.businesses);
-      setMoreVets(response.data.businesses);
+      setOpenVets(response.data.businesses);
     } catch (error) {
       console.log(error);
     }
@@ -244,7 +249,7 @@ const MoreResultsPage = () => {
   async function fetchOpenHosps(search) {
     try {
       const response = await axios.get(
-        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${search}&sort_by=best_match&term=emergency%20pet&open_now=true`,
+        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${search}&sort_by=best_match&term=emergency%20pet`,
         {
           headers: {
             Authorization: `Bearer ${KEY}`,
@@ -254,7 +259,7 @@ const MoreResultsPage = () => {
       );
       console.log("User search results");
       console.log(response.data.businesses);
-      setMoreHosps(response.data.businesses);
+      setOpenHosps(response.data.businesses);
     } catch (error) {
       console.log(error);
     }
@@ -322,11 +327,17 @@ const MoreResultsPage = () => {
   // Utility function to check state for each category
   const displayState = () => {
     console.log(moreRests);
+    console.log(openRests);
     console.log(moreDogParks);
+    console.log(openDogParks);
     console.log(morePubParks);
+    console.log(openPubParks);
     console.log(morePetStores);
+    console.log(openPetStores);
     console.log(moreVets);
+    console.log(openVets);
     console.log(moreHosps);
+    console.log(openHosps);
   };
 
   useEffect(() => {
@@ -352,25 +363,33 @@ const MoreResultsPage = () => {
       ) : (
         <ResultsCards inputs={openRests} />
       )}
-      {/* {moreRests && <ResultsCards inputs={moreRests} />}
-      {moreDogParks && <ResultsCards inputs={moreDogParks} />}
-      {morePubParks && <ResultsCards inputs={morePubParks} />}
-      {morePetStores && <ResultsCards inputs={morePetStores} />}
-      {moreVets && <ResultsCards inputs={moreVets} />}
-      {moreHosps && <ResultsCards inputs={moreHosps} />} */}
+      {!openNow ? (
+        <ResultsCards inputs={moreDogParks} />
+      ) : (
+        <ResultsCards inputs={openDogParks} />
+      )}
+      {!openNow ? (
+        <ResultsCards inputs={morePubParks} />
+      ) : (
+        <ResultsCards inputs={openPubParks} />
+      )}
+      {!openNow ? (
+        <ResultsCards inputs={morePetStores} />
+      ) : (
+        <ResultsCards inputs={openPetStores} />
+      )}
+      {!openNow ? (
+        <ResultsCards inputs={moreVets} />
+      ) : (
+        <ResultsCards inputs={openVets} />
+      )}
+      {!openNow ? (
+        <ResultsCards inputs={moreHosps} />
+      ) : (
+        <ResultsCards inputs={openHosps} />
+      )}
     </div>
   );
 };
 
 export default MoreResultsPage;
-
-// Option 1: have a separate api fetch using 'open_now' parameter on Yelp API => replace the original results cards with new results
-// Option 2: filter the original results with an "open_now" filter
-
-//       {openNow && <p>Open Now</p>}
-// {moreRests && <ResultsCards inputs={moreRests} />}
-// {moreDogParks && <ResultsCards inputs={moreDogParks} />}
-// {morePubParks && <ResultsCards inputs={morePubParks} />}
-// {morePetStores && <ResultsCards inputs={morePetStores} />}
-// {moreVets && <ResultsCards inputs={moreVets} />}
-// {moreHosps && <ResultsCards inputs={moreHosps} />}

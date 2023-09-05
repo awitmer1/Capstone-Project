@@ -6,9 +6,9 @@ form.comment-form {
     align-items: baseline;
 }
 
-input {
+/* input {
     width: 600px;
-}
+} */
 
 button.comment-button {
     background-color: steelblue;

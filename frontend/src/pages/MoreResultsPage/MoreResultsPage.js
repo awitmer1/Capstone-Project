@@ -165,6 +165,101 @@ const MoreResultsPage = () => {
     }
   }
 
+  async function fetchOpenDogParks(search) {
+    try {
+      const response = await axios.get(
+        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${search}&sort_by=best_match&term=dog_parks&open_now=true`,
+        {
+          headers: {
+            Authorization: `Bearer ${KEY}`,
+            accept: `application/json`,
+          },
+        }
+      );
+      console.log("User search results");
+      console.log(response.data.businesses);
+      setMoreDogParks(response.data.businesses);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function fetchOpenPubParks(search) {
+    try {
+      const response = await axios.get(
+        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${search}&sort_by=best_match&term=parks&open_now=true`,
+        {
+          headers: {
+            Authorization: `Bearer ${KEY}`,
+            accept: `application/json`,
+          },
+        }
+      );
+      console.log("User search results");
+      console.log(response.data.businesses);
+      setMorePubParks(response.data.businesses);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function fetchOpenPetStores(search) {
+    try {
+      const response = await axios.get(
+        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${search}&sort_by=best_match&term=pet%20store&open_now=true`,
+        {
+          headers: {
+            Authorization: `Bearer ${KEY}`,
+            accept: `application/json`,
+          },
+        }
+      );
+      console.log("User search results");
+      console.log(response.data.businesses);
+      setMorePetStores(response.data.businesses);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function fetchOpenVets(search) {
+    try {
+      const response = await axios.get(
+        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${search}&sort_by=best_match&term=Vet&open_now=true`,
+        {
+          headers: {
+            Authorization: `Bearer ${KEY}`,
+            accept: `application/json`,
+          },
+        }
+      );
+      console.log("User search results");
+      console.log(response.data.businesses);
+      setMoreVets(response.data.businesses);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function fetchOpenHosps(search) {
+    try {
+      const response = await axios.get(
+        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${search}&sort_by=best_match&term=emergency%20pet&open_now=true`,
+        {
+          headers: {
+            Authorization: `Bearer ${KEY}`,
+            accept: `application/json`,
+          },
+        }
+      );
+      console.log("User search results");
+      console.log(response.data.businesses);
+      setMoreHosps(response.data.businesses);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   //   Runs based on useContext(CategoryContext) passed from previous page (ResultsPage.js)
   const renderSwitch = (param) => {
     switch (param) {
@@ -192,11 +287,26 @@ const MoreResultsPage = () => {
     }
   };
 
-  //   Runs based on useContext(CategoryContext) passed from previous page (ResultsPage.js)
+  //   Runs 'Open Now" based on useContext(CategoryContext) passed from previous page (ResultsPage.js)
   const openSwitch = (param) => {
     switch (param) {
       case "restaurants":
         fetchOpenRests(search);
+        break;
+      case "dog-parks":
+        fetchOpenDogParks(search);
+        break;
+      case "pub-parks":
+        fetchOpenPubParks(search);
+        break;
+      case "pet-stores":
+        fetchOpenPetStores(search);
+        break;
+      case "vets":
+        fetchOpenVets(search);
+        break;
+      case "hospitals":
+        fetchOpenHosps(search);
         break;
       default:
         console.log("No data returned");
@@ -209,38 +319,6 @@ const MoreResultsPage = () => {
     setOpenNow(!openNow);
   };
 
-  // Conditional display function depending on Open Now toggle
-  function isOpen() {
-    if (!openNow) {
-      {
-        moreRests && <ResultsCards inputs={moreRests} />;
-      }
-      {
-        moreDogParks && <ResultsCards inputs={moreDogParks} />;
-      }
-      {
-        morePubParks && <ResultsCards inputs={morePubParks} />;
-      }
-      {
-        morePetStores && <ResultsCards inputs={morePetStores} />;
-      }
-      {
-        moreVets && <ResultsCards inputs={moreVets} />;
-      }
-      {
-        moreHosps && <ResultsCards inputs={moreHosps} />;
-      }
-    } else {
-      {
-        openNow && <p>Open Now</p>;
-      }
-      {
-        openRests && <ResultsCards inputs={openRests} />;
-      }
-    }
-    return;
-  }
-
   // Utility function to check state for each category
   const displayState = () => {
     console.log(moreRests);
@@ -249,28 +327,6 @@ const MoreResultsPage = () => {
     console.log(morePetStores);
     console.log(moreVets);
     console.log(moreHosps);
-  };
-
-  //   Placeholder + Function to display results for populated state
-  const displayResults = () => {
-    {
-      moreRests && <ResultsCards inputs={moreRests} />;
-    }
-    {
-      moreDogParks && <ResultsCards inputs={moreDogParks} />;
-    }
-    {
-      morePubParks && <ResultsCards inputs={morePubParks} />;
-    }
-    {
-      morePetStores && <ResultsCards inputs={morePetStores} />;
-    }
-    {
-      moreVets && <ResultsCards inputs={moreVets} />;
-    }
-    {
-      moreHosps && <ResultsCards inputs={moreHosps} />;
-    }
   };
 
   useEffect(() => {
@@ -291,12 +347,17 @@ const MoreResultsPage = () => {
         <OpenNowButton toggleOpen={toggleOpen} />
       </div>
       {openNow && <p>Open Now</p>}
-      {moreRests && <ResultsCards inputs={moreRests} />}
+      {!openNow ? (
+        <ResultsCards inputs={moreRests} />
+      ) : (
+        <ResultsCards inputs={openRests} />
+      )}
+      {/* {moreRests && <ResultsCards inputs={moreRests} />}
       {moreDogParks && <ResultsCards inputs={moreDogParks} />}
       {morePubParks && <ResultsCards inputs={morePubParks} />}
       {morePetStores && <ResultsCards inputs={morePetStores} />}
       {moreVets && <ResultsCards inputs={moreVets} />}
-      {moreHosps && <ResultsCards inputs={moreHosps} />}
+      {moreHosps && <ResultsCards inputs={moreHosps} />} */}
     </div>
   );
 };

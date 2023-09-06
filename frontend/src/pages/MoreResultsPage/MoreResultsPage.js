@@ -17,23 +17,9 @@ import CategoryContext from "../../context/CategoryContext";
 const MoreResultsPage = () => {
   const { search } = useContext(SearchContext);
   const { category } = useContext(CategoryContext);
-
-  // State(s) for default business search
-  const [moreRests, setMoreRests] = useState([]);
-  const [moreDogParks, setMoreDogParks] = useState([]);
-  const [morePubParks, setMorePubParks] = useState([]);
-  const [morePetStores, setMorePetStores] = useState([]);
-  const [moreVets, setMoreVets] = useState([]);
-  const [moreHosps, setMoreHosps] = useState([]);
-
-  // State(s) for 'Open Now' search
   const [openNow, setOpenNow] = useState(false);
-  const [openRests, setOpenRests] = useState([]);
-  const [openDogParks, setOpenDogParks] = useState([]);
-  const [openPubParks, setOpenPubParks] = useState([]);
-  const [openPetStores, setOpenPetStores] = useState([]);
-  const [openVets, setOpenVets] = useState([]);
-  const [openHosps, setOpenHosps] = useState([]);
+  const [moreBusinesses, setMoreBusinesses] = useState([]);
+  const [openBusinesses, setOpenBusinesses] = useState([]);
 
   // API Calls to fetch more results per category - run on switch case
   async function fetchMoreRestaurants(search) {
@@ -49,7 +35,7 @@ const MoreResultsPage = () => {
       );
       console.log("User search results");
       console.log(response.data.businesses);
-      setMoreRests(response.data.businesses);
+      setMoreBusinesses(response.data.businesses);
     } catch (error) {
       console.log(error);
     }
@@ -68,7 +54,7 @@ const MoreResultsPage = () => {
       );
       console.log("User search results");
       console.log(response.data.businesses);
-      setMoreDogParks(response.data.businesses);
+      setMoreBusinesses(response.data.businesses);
     } catch (error) {
       console.log(error);
     }
@@ -87,7 +73,7 @@ const MoreResultsPage = () => {
       );
       console.log("User search results");
       console.log(response.data.businesses);
-      setMorePubParks(response.data.businesses);
+      setMoreBusinesses(response.data.businesses);
     } catch (error) {
       console.log(error);
     }
@@ -106,7 +92,7 @@ const MoreResultsPage = () => {
       );
       console.log("User search results");
       console.log(response.data.businesses);
-      setMorePetStores(response.data.businesses);
+      setMoreBusinesses(response.data.businesses);
     } catch (error) {
       console.log(error);
     }
@@ -125,7 +111,7 @@ const MoreResultsPage = () => {
       );
       console.log("User search results");
       console.log(response.data.businesses);
-      setMoreVets(response.data.businesses);
+      setMoreBusinesses(response.data.businesses);
     } catch (error) {
       console.log(error);
     }
@@ -144,7 +130,7 @@ const MoreResultsPage = () => {
       );
       console.log("User search results");
       console.log(response.data.businesses);
-      setMoreHosps(response.data.businesses);
+      setMoreBusinesses(response.data.businesses);
     } catch (error) {
       console.log(error);
     }
@@ -164,7 +150,7 @@ const MoreResultsPage = () => {
       );
       console.log("User search results (Open Now)");
       console.log(response.data.businesses);
-      setOpenRests(response.data.businesses);
+      setOpenBusinesses(response.data.businesses);
     } catch (error) {
       console.log(error);
     }
@@ -183,7 +169,7 @@ const MoreResultsPage = () => {
       );
       console.log("User search results");
       console.log(response.data.businesses);
-      setOpenDogParks(response.data.businesses);
+      setOpenBusinesses(response.data.businesses);
     } catch (error) {
       console.log(error);
     }
@@ -202,7 +188,7 @@ const MoreResultsPage = () => {
       );
       console.log("User search results");
       console.log(response.data.businesses);
-      setOpenPubParks(response.data.businesses);
+      setOpenBusinesses(response.data.businesses);
     } catch (error) {
       console.log(error);
     }
@@ -221,7 +207,7 @@ const MoreResultsPage = () => {
       );
       console.log("User search results");
       console.log(response.data.businesses);
-      setOpenPetStores(response.data.businesses);
+      setOpenBusinesses(response.data.businesses);
     } catch (error) {
       console.log(error);
     }
@@ -240,7 +226,7 @@ const MoreResultsPage = () => {
       );
       console.log("User search results");
       console.log(response.data.businesses);
-      setOpenVets(response.data.businesses);
+      setOpenBusinesses(response.data.businesses);
     } catch (error) {
       console.log(error);
     }
@@ -259,7 +245,7 @@ const MoreResultsPage = () => {
       );
       console.log("User search results");
       console.log(response.data.businesses);
-      setOpenHosps(response.data.businesses);
+      setOpenBusinesses(response.data.businesses);
     } catch (error) {
       console.log(error);
     }
@@ -324,22 +310,6 @@ const MoreResultsPage = () => {
     setOpenNow(!openNow);
   };
 
-  // Utility function to check state for each category
-  const displayState = () => {
-    console.log(moreRests);
-    console.log(openRests);
-    console.log(moreDogParks);
-    console.log(openDogParks);
-    console.log(morePubParks);
-    console.log(openPubParks);
-    console.log(morePetStores);
-    console.log(openPetStores);
-    console.log(moreVets);
-    console.log(openVets);
-    console.log(moreHosps);
-    console.log(openHosps);
-  };
-
   useEffect(() => {
     renderSwitch(category);
     openSwitch(category);
@@ -359,34 +329,9 @@ const MoreResultsPage = () => {
       </div>
       {openNow && <p>Open Now</p>}
       {!openNow ? (
-        <ResultsCards inputs={moreRests} />
+        <ResultsCards inputs={moreBusinesses} />
       ) : (
-        <ResultsCards inputs={openRests} />
-      )}
-      {!openNow ? (
-        <ResultsCards inputs={moreDogParks} />
-      ) : (
-        <ResultsCards inputs={openDogParks} />
-      )}
-      {!openNow ? (
-        <ResultsCards inputs={morePubParks} />
-      ) : (
-        <ResultsCards inputs={openPubParks} />
-      )}
-      {!openNow ? (
-        <ResultsCards inputs={morePetStores} />
-      ) : (
-        <ResultsCards inputs={openPetStores} />
-      )}
-      {!openNow ? (
-        <ResultsCards inputs={moreVets} />
-      ) : (
-        <ResultsCards inputs={openVets} />
-      )}
-      {!openNow ? (
-        <ResultsCards inputs={moreHosps} />
-      ) : (
-        <ResultsCards inputs={openHosps} />
+        <ResultsCards inputs={openBusinesses} />
       )}
     </div>
   );

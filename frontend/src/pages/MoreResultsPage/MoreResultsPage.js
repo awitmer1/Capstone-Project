@@ -167,7 +167,7 @@ const MoreResultsPage = () => {
           },
         }
       );
-      console.log("User search results");
+      console.log("User search results (Open Now)");
       console.log(response.data.businesses);
       setOpenBusinesses(response.data.businesses);
     } catch (error) {
@@ -186,7 +186,7 @@ const MoreResultsPage = () => {
           },
         }
       );
-      console.log("User search results");
+      console.log("User search results (Open Now)");
       console.log(response.data.businesses);
       setOpenBusinesses(response.data.businesses);
     } catch (error) {
@@ -205,7 +205,7 @@ const MoreResultsPage = () => {
           },
         }
       );
-      console.log("User search results");
+      console.log("User search results (Open Now)");
       console.log(response.data.businesses);
       setOpenBusinesses(response.data.businesses);
     } catch (error) {
@@ -224,7 +224,7 @@ const MoreResultsPage = () => {
           },
         }
       );
-      console.log("User search results");
+      console.log("User search results (Open Now)");
       console.log(response.data.businesses);
       setOpenBusinesses(response.data.businesses);
     } catch (error) {

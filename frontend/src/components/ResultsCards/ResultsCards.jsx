@@ -11,8 +11,8 @@ const ResultsCards = ({ inputs }) => {
         inputs &&
         inputs.map((item) => {
           return (
-            <Link to={`/business/${item.id}`}>
-              <div key={item.id} className='card'>
+            <Link to={`/business/${item.id}`} key={item.id}>
+              <div className='card'>
                 <div className='card-pic'>
                   <img src={`${item.image_url}`} width={"125"} height={"100"} />
                 </div>

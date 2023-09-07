@@ -56,9 +56,9 @@ const BusinessInfo = ({ info }) => {
         <CommentDisplay id={info.id} />
       </div>
       <div className='business-imgs'>
-        <img src={`${info.photos[0]}`}></img>
-        <img src={`${info.photos[1]}`}></img>
-        <img src={`${info.photos[2]}`}></img>
+        <img alt='business provided photo' src={`${info.photos[0]}`}></img>
+        <img alt='business provided photo' src={`${info.photos[1]}`}></img>
+        <img alt='business provided photo' src={`${info.photos[2]}`}></img>
       </div>
     </div>
   );

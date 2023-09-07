@@ -6,15 +6,24 @@ div.comment-display {
 div.comment-block {
     display: flex;
     flex-direction: row;
-    border-bottom: 1px solid grey;
-    padding: .5rem;
-    margin: 1rem;
+    padding: 1rem;
+    margin-top: 1rem;
     background-color: white;
     border-radius: 3px;
     color: black;
+    max-width: 600px;
+}
+
+.comment-block:nth-child(even) {
+    background: aliceblue;
 }
 
 .comment-username {
     font-weight: bold;
     padding-right: 2rem;
+    font-size: medium;
+}
+
+.comment-text {
+    font-size: medium;
 }

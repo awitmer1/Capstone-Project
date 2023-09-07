@@ -3,7 +3,7 @@ import useForm from "./useForm";
 import { Link } from "react-router-dom";
 
 const SearchForm = () => {
-  const { formValues, handleChange, handleSubmit, handleClick } = useForm();
+  const { handleChange, handleSubmit, handleClick } = useForm();
   const { search } = useState("");
 
   return (

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import SearchContext from "../context/SearchContext";
 
 const useForm = (callback) => {

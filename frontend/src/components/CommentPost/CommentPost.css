@@ -6,9 +6,10 @@ form.comment-form {
     align-items: baseline;
 }
 
-/* .comment-text {
-    width: 500px;
-} */
+.comment-post-text {
+    font-size: large;
+    padding: 1rem;
+}
 
 button.comment-button {
     background-color: steelblue;

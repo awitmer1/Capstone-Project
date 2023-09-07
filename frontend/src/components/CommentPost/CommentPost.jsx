@@ -9,9 +9,11 @@ const CommentPost = () => {
     <div>
       <form className='comment-form' onSubmit={handleSubmit}>
         <label>Leave a Comment</label>
-        <input
-          className='comment-text'
-          type='text'
+        <textarea
+          className='comment-post-text'
+          type='textarea'
+          rows='5'
+          cols='50'
           name='comment_text'
           onChange={handleChange}
           value={formValues.comment_text}

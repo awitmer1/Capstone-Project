@@ -23,27 +23,29 @@ const BusinessInfo = ({ info }) => {
         <Link to={`/results`}>
           <p>Back to search results</p>
         </Link>
-        <h3>{info.name}</h3>
-        <p>{info.display_phone}</p>
-        <p>{info.categories[0].title}</p>
-        <p>Hours</p>
-        <p>{`${info.location.display_address[0]} `}</p>
-        <p>{`${info.location.display_address[1]} `}</p>
-        {info.location.display_address[2] && (
-          <p>{`${info.location.display_address[2]} `}</p>
-        )}
-        <p>
-          <StarRating businessRating={info.rating} />
-          based on {`${info.review_count}`} reviews
-        </p>
-        <a href={`${info.url}`}>
-          <button className='yelp-btn'>
-            Link to Yelp Page
-            <IconContext.Provider value={{ color: "white", size: "1.25em" }}>
-              <BsYelp />
-            </IconContext.Provider>
-          </button>
-        </a>
+        <div className='business-details'>
+          <h3>{info.name}</h3>
+          <p>{info.display_phone}</p>
+          <p>{info.categories[0].title}</p>
+          <p>Hours</p>
+          <p>{`${info.location.display_address[0]} `}</p>
+          <p>{`${info.location.display_address[1]} `}</p>
+          {info.location.display_address[2] && (
+            <p>{`${info.location.display_address[2]} `}</p>
+          )}
+          <p>
+            <StarRating businessRating={info.rating} />
+            based on {`${info.review_count}`} reviews
+          </p>
+          <a href={`${info.url}`}>
+            <button className='yelp-btn'>
+              Link to Yelp Page
+              <IconContext.Provider value={{ color: "white", size: "1.25em" }}>
+                <BsYelp />
+              </IconContext.Provider>
+            </button>
+          </a>
+        </div>
 
         {user ? (
           <CommentPost id={info.id} />

@@ -26,7 +26,7 @@ const Navbar = () => {
           <>
             <li>
               <Link to='/saved' className='saved-link'>
-                Saved for Later
+                My Saved Places
               </Link>
             </li>
             <li>

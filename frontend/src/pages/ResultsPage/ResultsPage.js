@@ -169,7 +169,7 @@ const ResultsPage = () => {
             <Link
               to={`/results/more`}
               onClick={() => setCategory(`${categoryName}`)}>
-              <p>See More Results</p>
+              <p>Show More</p>
             </Link>
           </div>
 
@@ -200,7 +200,7 @@ const ResultsPage = () => {
       <div className='results-main-display'>
         <div className='back-to-main'>
           <Link to={`/`}>
-            <p>Back</p>
+            <p>Back to Search Page</p>
           </Link>
         </div>
         <p className='results-for'>Results for: {search}</p>

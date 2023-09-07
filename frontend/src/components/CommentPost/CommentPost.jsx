@@ -8,8 +8,9 @@ const CommentPost = () => {
   return (
     <div>
       <form className='comment-form' onSubmit={handleSubmit}>
-        <label>Comment</label>
+        <label>Leave a Comment</label>
         <input
+          className='comment-text'
           type='text'
           name='comment_text'
           onChange={handleChange}

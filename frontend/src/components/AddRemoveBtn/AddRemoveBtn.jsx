@@ -76,7 +76,7 @@ const AddRemoveBtn = ({ data, category }) => {
         className='del-btn'
         id='del-btn'
         onClick={() => deleteBtnHandle(id)}>
-        Remove from saved
+        Remove from saved places
       </button>
     </div>
   );

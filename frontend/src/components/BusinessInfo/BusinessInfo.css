@@ -15,9 +15,17 @@
     width: 20rem;
 }
 
+.business-details {
+    line-height: 2.5rem;
+}
+
 .yelp-btn {
     background-color: rgb(255, 26, 26);
     color: white;
-    border: 1px solid rgb(255, 26, 26);
-    border-radius: 5px;
+    height: 35px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .75rem;
+    margin-top: 1rem;
 }

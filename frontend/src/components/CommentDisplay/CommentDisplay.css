@@ -9,8 +9,9 @@ div.comment-block {
     border-bottom: 1px solid grey;
     padding: .5rem;
     margin: 1rem;
-    background-color: aliceblue;
+    background-color: white;
     border-radius: 3px;
+    color: black;
 }
 
 .comment-username {

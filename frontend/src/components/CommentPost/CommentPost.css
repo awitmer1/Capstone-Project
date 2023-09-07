@@ -6,8 +6,8 @@ form.comment-form {
     align-items: baseline;
 }
 
-/* input {
-    width: 600px;
+/* .comment-text {
+    width: 500px;
 } */
 
 button.comment-button {
@@ -15,6 +15,6 @@ button.comment-button {
     color: white;
     font-size: 1rem;
     font-family: inherit;
-    max-width: 100px;
     padding: 0.25rem 0.5rem;
+    margin-top: .5rem;
 }

@@ -22,6 +22,7 @@
 
 .results-for {
     font-size: 1.5em;
+    text-transform: capitalize;
 }
 
 img {

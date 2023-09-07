@@ -21,16 +21,24 @@ const Navbar = () => {
             <b>TWF</b>
           </Link>
         </li>
-        <li>
-          {user ? (
-            <>
+
+        {user ? (
+          <>
+            <li>
+              <Link to='/saved' className='saved-link'>
+                Saved for Later
+              </Link>
+            </li>
+            <li>
               <p>{user.username}</p>
+            </li>
+            <li>
               <button onClick={logoutUser}>Logout</button>
-            </>
-          ) : (
-            <button onClick={() => navigate("/login")}>Login</button>
-          )}
-        </li>
+            </li>
+          </>
+        ) : (
+          <button onClick={() => navigate("/login")}>Login</button>
+        )}
       </ul>
     </div>
   );

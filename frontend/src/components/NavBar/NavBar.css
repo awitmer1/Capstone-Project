@@ -2,6 +2,7 @@ ul {
   display: flex;
   justify-content: space-between;
   list-style-type: none;
+  align-items: center;
 }
 
 li {
@@ -40,4 +41,12 @@ p {
 
 a {
   display: flex;
+}
+
+.saved-link {
+  color: white;
+}
+
+.saved-link:hover {
+  color: #B47846;
 }

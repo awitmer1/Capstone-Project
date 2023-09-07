@@ -65,13 +65,10 @@ const AddRemoveBtn = ({ data, category }) => {
   };
 
   return (
-    <>
-      <button onClick={() => console.log(data, category)}>
-        Get Business Data
-      </button>
+    <div className='add-remove-btns'>
       <button onClick={() => addBtnHandle()}>Save</button>
       <button onClick={() => deleteBtnHandle(id)}>Remove</button>
-    </>
+    </div>
   );
 };
 

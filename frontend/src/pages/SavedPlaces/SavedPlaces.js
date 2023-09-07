@@ -1,20 +1,15 @@
 // General Imports
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import axios from "axios";
-import { KEY } from "../../localKey";
 import { useContext } from "react";
 import "./SavedPlaces.css";
 import AuthContext from "../../context/AuthContext";
-
-// Component Imports
 
 const SavedPlaces = () => {
   // State Variables
   const [saved, setSaved] = useState([]);
 
   // Context Variables
-  const { id } = useParams();
   const { user, token } = useContext(AuthContext);
 
   async function getSavedPlaces() {
@@ -52,7 +47,7 @@ const SavedPlaces = () => {
       <div className='places-map'>
         {saved.map((place) => {
           return (
-            <div key={place.yelp_id}>
+            <div key={place.yelp_id} className='saved-card'>
               <a>{place.business_name}</a>
               <a>{place.category}</a>
             </div>

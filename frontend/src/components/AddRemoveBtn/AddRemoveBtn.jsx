@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import AuthContext from "../../context/AuthContext";
 import { useParams } from "react-router-dom";
+import "./AddRemoveBtn.css";
 
 const AddRemoveBtn = ({ data, category }) => {
   // Context Variables
@@ -26,12 +27,6 @@ const AddRemoveBtn = ({ data, category }) => {
     }
   };
 
-  //   Button toggle to handle delete request
-  function deleteBtnHandle(id) {
-    console.log(`Deleting Business ${id}...`);
-    deleteBtn(id);
-  }
-
   //   Axios post request - add selected business to saved places
   const addBtn = async () => {
     try {
@@ -51,9 +46,15 @@ const AddRemoveBtn = ({ data, category }) => {
     }
   };
 
+  //   Button toggle to handle delete request
+  function deleteBtnHandle(id) {
+    console.log(`Deleting Business ${id}...`);
+    deleteBtn(id);
+  }
+
   //   Button toggle to handle post request
   function addBtnHandle() {
-    console.log(`Adding Business ${id}...`);
+    console.log(`Adding Business ${id} to saved places`);
     addBtn();
   }
 
@@ -66,8 +67,12 @@ const AddRemoveBtn = ({ data, category }) => {
 
   return (
     <div className='add-remove-btns'>
-      <button onClick={() => addBtnHandle()}>Save</button>
-      <button onClick={() => deleteBtnHandle(id)}>Remove</button>
+      <button className='add-btn' onClick={() => addBtnHandle()}>
+        Save for later
+      </button>
+      <button className='del-btn' onClick={() => deleteBtnHandle(id)}>
+        Remove from saved
+      </button>
     </div>
   );
 };

@@ -4,6 +4,7 @@ import axios from "axios";
 import { useContext } from "react";
 import "./SavedPlaces.css";
 import AuthContext from "../../context/AuthContext";
+import { Link } from "react-router-dom";
 
 const SavedPlaces = () => {
   // State Variables
@@ -47,10 +48,12 @@ const SavedPlaces = () => {
       <div className='places-map'>
         {saved.map((place) => {
           return (
-            <div key={place.yelp_id} className='saved-card'>
-              <a>{place.business_name}</a>
-              <a>{place.category}</a>
-            </div>
+            <Link to={`/business/${place.yelp_id}`}>
+              <div key={place.yelp_id} className='saved-card'>
+                <a>{place.business_name}</a>
+                <a>{place.category}</a>
+              </div>
+            </Link>
           );
         })}
       </div>

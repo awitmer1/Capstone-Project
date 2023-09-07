@@ -1,11 +1,12 @@
 .more-results-container {
     /* Light background image */
-    /* background-image: url('../../../public/more-results-bg.png'); */
+    background-image: url('../../../public/more-results-bg-crop.png');
     /* Dark background image */
-    background-image: url('../../../public/more-results-dark.jpg');
+    /* background-image: url('../../../public/more-results-dark.jpg'); */
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    background-position-y: 80%;
     padding-top: 2rem;
     color: white;
 }

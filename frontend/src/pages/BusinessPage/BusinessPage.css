@@ -6,6 +6,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    padding-top: 2rem;
+    background-position: right;
+    padding: 2rem 0;
     color: white;
 }

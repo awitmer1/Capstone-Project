@@ -21,7 +21,7 @@ const BusinessInfo = ({ info }) => {
     <div className='business-info-container'>
       <div className='business-text'>
         <Link to={`/results`}>
-          <p>Back to search results</p>
+          <p>Back to Search Results</p>
         </Link>
         <div className='business-details'>
           <h3>{info.name}</h3>

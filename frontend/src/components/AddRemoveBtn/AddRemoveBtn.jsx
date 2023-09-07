@@ -10,7 +10,7 @@ const AddRemoveBtn = ({ data, category }) => {
   const { user, token } = useContext(AuthContext);
 
   //   Axios delete request - remove selected business from saved places
-  const deleteBtn = async () => {
+  const deleteBtnDel = async () => {
     try {
       const response = await axios.delete(
         `http://127.0.0.1:8000/api/saved_places/${user.id}/${id}`,
@@ -28,7 +28,7 @@ const AddRemoveBtn = ({ data, category }) => {
   };
 
   //   Axios post request - add selected business to saved places
-  const addBtn = async () => {
+  const addBtnPost = async () => {
     try {
       const response = await axios.post(
         `http://127.0.0.1:8000/api/saved_places/${user.id}`,
@@ -49,13 +49,15 @@ const AddRemoveBtn = ({ data, category }) => {
   //   Button toggle to handle delete request
   function deleteBtnHandle(id) {
     console.log(`Deleting Business ${id}...`);
-    deleteBtn(id);
+    document.querySelector(`#del-btn`).textContent = "Removed!";
+    deleteBtnDel(id);
   }
 
   //   Button toggle to handle post request
   function addBtnHandle() {
     console.log(`Adding Business ${id} to saved places`);
-    addBtn();
+    document.querySelector(`#add-btn`).textContent = "Saved!";
+    addBtnPost();
   }
 
   //   Post body data - passed into Axios
@@ -67,10 +69,13 @@ const AddRemoveBtn = ({ data, category }) => {
 
   return (
     <div className='add-remove-btns'>
-      <button className='add-btn' onClick={() => addBtnHandle()}>
+      <button className='add-btn' id='add-btn' onClick={() => addBtnHandle()}>
         Save for later
       </button>
-      <button className='del-btn' onClick={() => deleteBtnHandle(id)}>
+      <button
+        className='del-btn'
+        id='del-btn'
+        onClick={() => deleteBtnHandle(id)}>
         Remove from saved
       </button>
     </div>

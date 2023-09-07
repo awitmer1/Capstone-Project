@@ -11,6 +11,8 @@ import StarRating from "../StarRating/StarRating";
 
 // Utility Imports
 import AuthContext from "../../context/AuthContext";
+import { IconContext } from "react-icons";
+import { BsYelp } from "react-icons/bs";
 
 const BusinessInfo = ({ info }) => {
   const { user } = useContext(AuthContext);
@@ -19,7 +21,7 @@ const BusinessInfo = ({ info }) => {
     <div className='business-info-container'>
       <div className='business-text'>
         <Link to={`/results`}>
-          <p>Back</p>
+          <p>Back to search results</p>
         </Link>
         <h3>{info.name}</h3>
         <p>{info.display_phone}</p>
@@ -35,7 +37,12 @@ const BusinessInfo = ({ info }) => {
           based on {`${info.review_count}`} reviews
         </p>
         <a href={`${info.url}`}>
-          <button className='yelp-btn'>Link to Yelp Page</button>
+          <button className='yelp-btn'>
+            Link to Yelp Page
+            <IconContext.Provider value={{ color: "white", size: "1.25em" }}>
+              <BsYelp />
+            </IconContext.Provider>
+          </button>
         </a>
 
         {user ? (

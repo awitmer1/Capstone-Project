@@ -32,8 +32,8 @@ const ResultsPage = () => {
   ]);
 
   // Context Variables
-  const { search, setSearch } = useContext(SearchContext);
-  const { category, setCategory } = useContext(CategoryContext);
+  const { search } = useContext(SearchContext);
+  const { setCategory } = useContext(CategoryContext);
 
   // Initial search functions for each category which run on page load (3 results max)
   async function fetchRestaurants(search) {

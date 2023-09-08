@@ -1,17 +1,13 @@
 // General Imports
-import React, { useState, useEffect, useContext } from "react";
+import React from "react";
 
 // Component Imports
 import SearchForm from "../../utils/SearchForm";
 
 // Utility Imports
-import { KEY } from "../../localKey";
 import "./LandingPage.css";
-import SearchContext from "../../context/SearchContext";
 
 const LandingPage = () => {
-  const { search, setSearch } = useContext(SearchContext);
-
   return (
     <>
       <div className='centered hero-img'>

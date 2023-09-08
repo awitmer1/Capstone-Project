@@ -1,10 +1,7 @@
 .results-page-container {
     display: flex;
     justify-content: center;
-    /* Light background image */
     background-image: url('../../../public/more-info-bg.png');
-    /* Dark background image */
-    /* background-image: url('../../../public/more-info-dark.jpg'); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

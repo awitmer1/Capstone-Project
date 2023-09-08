@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { KEY } from "../../localKey";
-import { Link } from "react-router-dom";
 import CommentContext from "../../hooks/CommentContext";
 import { useContext } from "react";
 import "./BusinessPage.css";

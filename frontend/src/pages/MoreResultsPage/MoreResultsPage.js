@@ -327,7 +327,7 @@ const MoreResultsPage = () => {
         <p>Additional Results for: {search}</p>
         <OpenNowButton toggleOpen={toggleOpen} />
       </div>
-      {openNow && <p>Open Now</p>}
+      {openNow && <p className='open-text'>Open Now Businesses</p>}
       {!openNow ? (
         <ResultsCards inputs={moreBusinesses} />
       ) : (

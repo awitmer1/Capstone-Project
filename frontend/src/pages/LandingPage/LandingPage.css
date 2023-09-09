@@ -10,7 +10,7 @@ div.centered {
 .hero-img {
     background: url('../../../public/hannah-reding-HZTSjwMi8XM-unsplash.jpg') no-repeat center;
     background-size: cover;
-    height: 1000px;
+    height: 100vh;
     position: relative;
 }
 

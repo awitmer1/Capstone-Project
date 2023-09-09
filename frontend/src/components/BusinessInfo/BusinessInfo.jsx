@@ -27,7 +27,6 @@ const BusinessInfo = ({ info }) => {
           <h3 className='business-title'>{info.name}</h3>
           <p>{info.display_phone}</p>
           <p>{info.categories[0].title}</p>
-          <p>Hours</p>
           <p>{`${info.location.display_address[0]} `}</p>
           <p>{`${info.location.display_address[1]} `}</p>
           {info.location.display_address[2] && (

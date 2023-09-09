@@ -57,23 +57,6 @@ const BusinessPage = () => {
     setComments(response.data);
   }
 
-  // Tests for object/data tracking
-  function runTests(data) {
-    console.log(data);
-    console.log(data.id);
-    console.log(data.categories[0].title);
-    console.log(data.location);
-    console.log(data.location.display_address);
-    console.log(
-      `${data.location.display_address[0]} ` +
-        `${data.location.display_address[1]}`
-    );
-    return;
-  }
-
-  // Variable to hold category information to pass down to other components
-  // let displayCategory = bizData.categories[0].title;
-
   useEffect(() => {
     getBusinessInfo(id);
     getAllComments(comments);

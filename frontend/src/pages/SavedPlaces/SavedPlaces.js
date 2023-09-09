@@ -7,10 +7,7 @@ import AuthContext from "../../context/AuthContext";
 import { Link } from "react-router-dom";
 
 const SavedPlaces = () => {
-  // State Variables
   const [saved, setSaved] = useState([]);
-
-  // Context Variables
   const { user, token } = useContext(AuthContext);
 
   async function getSavedPlaces() {

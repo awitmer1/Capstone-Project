@@ -323,7 +323,6 @@ const MoreResultsPage = () => {
             <p>Back</p>
           </Link>
         </div>
-        {console.log(category)}
         <p>Additional Results for: {search}</p>
         <OpenNowButton toggleOpen={toggleOpen} />
       </div>

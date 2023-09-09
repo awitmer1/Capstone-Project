@@ -11,6 +11,9 @@ import "./BusinessPage.css";
 import BusinessInfo from "../../components/BusinessInfo/BusinessInfo";
 import AddRemoveBtn from "../../components/AddRemoveBtn/AddRemoveBtn";
 
+// Utility Imports
+import AuthContext from "../../context/AuthContext";
+
 const BusinessPage = () => {
   // State Variables
   const [bizData, setBizData] = useState([]);
@@ -19,6 +22,7 @@ const BusinessPage = () => {
 
   // Context Variables
   const { id } = useParams();
+  const { user } = useContext(AuthContext);
   const { comments, setComments } = useContext(CommentContext);
 
   // API Get function for single Yelp business based off of Yelp id
@@ -77,7 +81,9 @@ const BusinessPage = () => {
 
   return (
     <div className='business-main'>
-      <AddRemoveBtn data={bizData} category={businessCategory} />
+      {user ? (
+        <AddRemoveBtn data={bizData} category={businessCategory} />
+      ) : null}
       {loading ? <p>Loading...</p> : bizData && <BusinessInfo info={bizData} />}
     </div>
   );

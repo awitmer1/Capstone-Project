@@ -24,7 +24,7 @@ const BusinessInfo = ({ info }) => {
           <p>Back to Search Results</p>
         </Link>
         <div className='business-details'>
-          <h3>{info.name}</h3>
+          <h3 className='business-title'>{info.name}</h3>
           <p>{info.display_phone}</p>
           <p>{info.categories[0].title}</p>
           <p>Hours</p>
@@ -37,14 +37,15 @@ const BusinessInfo = ({ info }) => {
             <StarRating businessRating={info.rating} />
             based on {`${info.review_count}`} reviews
           </p>
-          <a href={`${info.url}`}>
-            <button className='yelp-btn'>
+
+          <button className='yelp-btn'>
+            <a href={`${info.url}`}>
               Link to Yelp Page
               <IconContext.Provider value={{ color: "white", size: "1.25em" }}>
                 <BsYelp />
               </IconContext.Provider>
-            </button>
-          </a>
+            </a>
+          </button>
         </div>
 
         {user ? (

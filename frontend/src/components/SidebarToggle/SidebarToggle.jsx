@@ -13,7 +13,7 @@ const SidebarToggle = ({ selectedOptions, handleCheckboxChange }) => {
     <div className='sidebar' key={categories}>
       <p className='sidebar-title'>Filter By:</p>
       {categories.map((category) => (
-        <div className='sidebar-category-boxes'>
+        <div className='sidebar-category-boxes' key={category}>
           <input
             type='checkbox'
             id={category}

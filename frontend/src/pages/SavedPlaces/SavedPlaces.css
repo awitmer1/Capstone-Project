@@ -1,5 +1,5 @@
 .saved-places-main {
-    height: 900px;
+    height: 100vh;
     /* Light background image */
     background-image: url('../../../public/saved-places-bg.png');
     /* Dark background image */
@@ -20,13 +20,12 @@
 }
 
 .places-map {
-    display: grid;
-    grid-template-columns: 25% 25% 25%;
-    grid-auto-flow: row;
-    grid-gap: 5rem;
+    display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     justify-items: center;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .saved-card {
@@ -34,9 +33,7 @@
     padding: 1.5rem;
     background-color: white;
     color: black;
-    height: 150px;
-    width: 150px;
+    width: 40rem;
     opacity: 90%;
-    flex-direction: column;
     justify-content: space-between;
 }

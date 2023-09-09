@@ -48,10 +48,10 @@ const SavedPlaces = () => {
       <div className='places-map'>
         {saved.map((place) => {
           return (
-            <Link to={`/business/${place.yelp_id}`}>
-              <div key={place.yelp_id} className='saved-card'>
-                <a>{place.business_name}</a>
-                <a>{place.category}</a>
+            <Link key={place.yelp_id} to={`/business/${place.yelp_id}`}>
+              <div className='saved-card'>
+                <p>{place.business_name}</p>
+                <p>{place.category}</p>
               </div>
             </Link>
           );

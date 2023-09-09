@@ -50,7 +50,7 @@ const BusinessInfo = ({ info }) => {
         {user ? (
           <CommentPost id={info.id} />
         ) : (
-          <p>Must be logged in to comment!</p>
+          <p>Must be logged in to comment and save for later!</p>
         )}
 
         <CommentDisplay id={info.id} />

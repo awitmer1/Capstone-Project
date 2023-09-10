@@ -25,7 +25,10 @@ const Navbar = () => {
         {user ? (
           <>
             <li>
-              <Link to='/saved' className='saved-link'>
+              <Link
+                to='/saved'
+                className='saved-link'
+                style={{ color: "white" }}>
                 My Saved Places
               </Link>
             </li>
